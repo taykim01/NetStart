@@ -40,7 +40,7 @@ export default function SignUpCard(props: any) {
         <div className="vf gap8">
             {
                 questionTypes.map(
-                    type => <Checkboxes type="checkTitle" title={type.text} />
+                    (type, index) => <Checkboxes key={index} type="checkTitle" title={type.text} />
                 )
             }
         </div>
