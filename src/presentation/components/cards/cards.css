@@ -1,0 +1,57 @@
+@import url("../../assets/styles/Global.css");
+
+.card {
+  width: 320px;
+  height: 480px;
+  background-color: #f8fbfe;
+  border-radius: 16px;
+  z-index: 1;
+  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 5px;
+  transition: all 0.3s;
+}
+
+.card-container {
+  padding: 120px 20px 20px 20px;
+  height: calc(100% - 37.5px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px
+}
+
+.card:hover {
+  box-shadow: none;
+  transition: all 0.3s;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+}
+
+.circle {
+  padding: 0 4px;
+}
+
+.box {
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: #ff605c;
+}
+
+.yellow {
+  background-color: #ffbd44;
+}
+
+.green {
+  background-color: #00ca4e;
+}

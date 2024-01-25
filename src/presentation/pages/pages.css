@@ -1,9 +1,39 @@
 @import url("../assets/styles/Global.css");
 
 .main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    padding: 0px 160px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 40px 160px 0px 160px;
+  box-sizing: border-box;
+}
+
+.form-done {
+  display: flex;
+  height: 100vh;
+  padding: 40px 240px 0px 160px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.mood-description {
+  border-radius: 12px;
+  line-height: 1.3;
+}
+
+.colors-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mood-box {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }

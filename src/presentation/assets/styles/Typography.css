@@ -8,6 +8,10 @@
   src: url("../fonts/NanumSquareNeo-Variable.woff2");
 }
 
+:root {
+  font-family: Pretendard;
+}
+
 .emph {
   font-family: Pretendard;
   font-size: 48px;
@@ -60,6 +64,12 @@
   font-family: Pretendard;
   font-size: 14px;
   font-weight: 400;
+}
+
+.p4 {
+  font-family: Pretendard;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .button {

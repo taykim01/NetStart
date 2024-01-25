@@ -1,0 +1,58 @@
+@import url("../../assets/styles/Global.css");
+
+.toggle {
+  padding: 8px 12px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.toggle-off {
+  border: 1.4px solid var(--dark);
+  transition: all 0.5s;
+}
+
+.toggle-on {
+  background-color: var(--dark);
+  color: var(--white);
+  transition: all 0.5s;
+}
+
+.cyberpunk-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--dark);
+  border-radius: 5px;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cyberpunk-checkbox:before {
+  content: "";
+  background-color: var(--dark);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cyberpunk-checkbox:checked:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.cyberpunk-checkbox-label {
+  font-size: 14px;
+  color: var(--dark);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}

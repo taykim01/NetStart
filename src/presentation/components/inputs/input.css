@@ -1,0 +1,112 @@
+@import url("../../assets/styles/Global.css");
+
+.wave-group {
+  position: relative;
+}
+
+.wave-group .input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid var(--dark);
+  background: transparent;
+}
+
+.wave-group .input:focus {
+  outline: none;
+}
+
+.wave-group .label {
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+
+.wave-group .label-char {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * 0.05s);
+}
+
+.wave-group .input:focus ~ label .label-char,
+.wave-group .input:valid ~ label .label-char {
+  transform: translateY(-20px);
+  font-size: 14px;
+  font-family: Pretendard;
+}
+
+.wave-group .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+  left: 50%;
+}
+
+.wave-group .bar:after {
+  right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.label-char:nth-child(1) {
+  --index: 0;
+}
+
+.label-char:nth-child(2) {
+  --index: 1;
+}
+
+.label-char:nth-child(3) {
+  --index: 2;
+}
+
+.label-char:nth-child(4) {
+  --index: 3;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border: 1.5px solid var(--dark);
+  border-radius: 12px;
+  padding: 12px;
+  background-color: transparent;
+  transition: all 0.3s ease-in;
+  resize: none;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+textarea:active,
+textarea:focus {
+  border: 1.5px solid var(--dark);
+  transition: all 0.3s ease-in;
+}

@@ -1,11 +1,13 @@
 import Header from "@/presentation/components/header";
-import Main from "@/presentation/pages/main";
+import FormPage from "@/presentation/pages/form_page";
+import MainPage from "@/presentation/pages/main_page";
 
 export default function Home() {
   return (
     <main>
       <Header />
-      <Main />
+      <MainPage />
+      <FormPage />
     </main>
   )
 }

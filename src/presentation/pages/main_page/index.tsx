@@ -5,7 +5,7 @@ import Lottie from "lottie-react"
 import web from "@/presentation/assets/images/lottie-web.json"
 import Button from "@/presentation/components/buttons"
 
-export default function Main() {
+export default function MainPage() {
     return (
         <div className="main">
             <div className="vf gap48">
@@ -24,7 +24,7 @@ export default function Main() {
             </div>
             <Lottie
                 animationData={web}
-                style={{ width: 400, height: 200 }}
+                style={{ width: 600, height: 300 }}
             />
         </div>
     )
