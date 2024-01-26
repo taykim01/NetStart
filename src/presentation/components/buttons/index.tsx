@@ -4,7 +4,7 @@ export default function Button(props: any) {
     switch (props.type) {
         case "learn_more":
             return (
-                <button className="learn-more">
+                <button className="learn-more" onClick={props.onClick}>
                     <span className="circle" aria-hidden="true">
                         <span className="icon arrow"></span>
                     </span>

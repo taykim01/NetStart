@@ -1,8 +1,12 @@
 import Button from "@/presentation/components/buttons";
 import Lottie from "lottie-react";
 import website from "@/presentation/assets/images/website.json"
+import { ScrollContext } from "@/presentation/states/scroll_context";
+import { useContext } from "react";
 
 export default function FormDonePage(props: any) {
+    const { scrollTo, refS1 } = useContext(ScrollContext);
+
     return (
         <div className="form-done">
             <Lottie
@@ -17,7 +21,7 @@ export default function FormDonePage(props: any) {
                     <div className="p1 grey-900">잠시만 기다려주세요.</div>
                 </div>
 
-                <Button text="홈으로 돌아가기" />
+                <Button text="홈으로 돌아가기" onClick={() => scrollTo(refS1)} />
             </div>
         </div>
     )

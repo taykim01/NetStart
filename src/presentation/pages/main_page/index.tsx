@@ -4,8 +4,12 @@ import "../pages.css"
 import Lottie from "lottie-react"
 import web from "@/presentation/assets/images/lottie-web.json"
 import Button from "@/presentation/components/buttons"
+import { ScrollContext } from "@/presentation/states/scroll_context"
+import { useContext } from "react"
 
 export default function MainPage() {
+    const { scrollTo, refS2 } = useContext(ScrollContext);
+
     return (
         <div className="main">
             <div className="vf gap48">
@@ -19,7 +23,11 @@ export default function MainPage() {
                     </div>
                 </div>
                 <div>
-                    <Button type="learn_more" text="더 알아보기" />
+                    <Button
+                        type="learn_more"
+                        text="더 알아보기"
+                        onClick={() => scrollTo(refS2)}
+                    />
                 </div>
             </div>
             <Lottie

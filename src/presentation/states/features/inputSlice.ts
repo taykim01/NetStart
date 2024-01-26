@@ -11,7 +11,10 @@ export const emptyInquiry = {
     logoUrl: "",
     otherInquiry: "",
     mood: "",
-    color: "",
+    color: {
+      main: "",
+      sub: ""
+    },
     landing: "",
     form: "",
     board: "",

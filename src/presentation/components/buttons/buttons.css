@@ -138,13 +138,14 @@ button:hover .button-text {
   transition: all 0.3s;
   border-radius: 12px;
   color: var(--grey-900);
+  transition: all 0.5s ease;
 }
 
 .text-button:active,
 .text-button:hover {
   background-color: var(--main-500);
   color: var(--white);
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   box-shadow: 1px 1px 200px var(--main-500);
 }
 

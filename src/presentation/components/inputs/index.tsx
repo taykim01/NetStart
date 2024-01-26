@@ -3,7 +3,7 @@ import { useState } from "react"
 
 export default function Input(props: any) {
     const [inputColor, setInputColor] = useState("")
-    let idCounter = 0;
+    const id = props.label;
     const applyColor = (e: any) => {
         let value = e.target.value
         if (value.includes("#")) {
@@ -12,9 +12,13 @@ export default function Input(props: any) {
         if (value.length > 6) {
             value = value.slice(0, 6);
         }
-        setInputColor(`#${value}`)
+        if (value.length === 0) {
+            setInputColor("")
+        } else {
+            setInputColor(`#${value}`)
+        }
     }
-    const variableColor = inputColor.length > 6 ? inputColor : 'var(--grey-900)'
+    const variableColor = inputColor.length > 6 ? inputColor : 'var(--grey-600)'
 
 
 
@@ -25,25 +29,29 @@ export default function Input(props: any) {
     switch (props.type) {
         case "color_picker":
             return (
-                <div className="wave-group" id={props.label} style={{ padding: "10px 10px 10px 0px" }} >
+                <div className="wave-group" id={id} style={{ padding: "10px 10px 10px 0px" }} >
                     <style>
-                        {`
-
-                            #${props.label} .input {
+                        {`#${id} .bar:before, #${id} .bar:after {
+                                background: ${variableColor};
+                            }
+                            #${id} .input {
                                 border-bottom: 2px solid ${variableColor};
                             }
-
+                            #${id} .input:focus ~ label .label-char,
+                            #${id} .input:valid ~ label .label-char {
+                                color: ${variableColor}
+                            }
                         `}
                     </style>
                     <input
-                        id={props.label}
+                        required
                         type="text"
                         className="input"
                         onChange={applyColor}
                         value={inputColor}
                         style={{ color: variableColor }}
                     />
-                    <span className="bar" id={props.label} style={{ backgroundColor: variableColor }} />
+                    <span className="bar" id={id} style={{ backgroundColor: variableColor }} />
                     <label className="label">
                         {props.label?.split('').map((char: string, idx: number) => (
                             <span key={idx} style={{ color: variableColor }} className="label-char">{char}</span>
