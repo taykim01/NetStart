@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const emptyInquiry = {
   value: {
     picName: "",
-    company: "",
+    productName: "",
     contact: "",
     productDetail: "",
     productConsumer: "",
@@ -33,9 +33,12 @@ export const inputSlice = createSlice({
     applyInput: (state, action) => {
       state.value = action.payload;
     },
+    applyColor: (state, action) => {
+      state.value.color = action.payload;
+    },
     resetInput: () => initialState,
   },
 });
 
-export const { applyInput, resetInput } = inputSlice.actions;
+export const { applyInput, applyColor, resetInput } = inputSlice.actions;
 export default inputSlice.reducer;

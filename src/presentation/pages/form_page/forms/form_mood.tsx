@@ -1,9 +1,12 @@
 import Checkboxes from "@/presentation/components/checkboxes";
 import Input from "@/presentation/components/inputs";
+import { applyColor, applyInput } from "@/presentation/states/features/inputSlice";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function FormMood(props: any) {
-    const [selectedMoods, setSelectedMoods] = useState<string[]>([])
+    const dispatch = useDispatch()
+    const inputContents = useSelector((state: any) => state.input.value)
 
     const moods: string[] = [
         "부드러운",
@@ -27,22 +30,40 @@ export default function FormMood(props: any) {
         "깔끔한"
     ]
 
+    const [selectedMoods, setSelectedMoods] = useState<string[]>([])
     const toggleMood = (mood: string) => {
+        let updatedMoods;
         if (selectedMoods.includes(mood)) {
-            setSelectedMoods(selectedMoods.filter(selectedMood => selectedMood !== mood));
+          updatedMoods = selectedMoods.filter(selectedMood => selectedMood !== mood);
         } else {
-            setSelectedMoods([...selectedMoods, mood]);
+          updatedMoods = [...selectedMoods, mood];
         }
-    }
+      
+        setSelectedMoods(updatedMoods);
+        dispatch(applyInput({
+          ...inputContents,
+          mood: updatedMoods.join(", ")
+        }));
+      }
+      
 
+    const handleColor = (hex: string, type: string) => {
+        dispatch(
+            applyColor({
+                ...inputContents.color,
+                [type]: hex
+            })
+        )
+        
+    }
 
     return (
         <div className="vf gap80 grey-900" style={{ width: 400 }}>
             <div className="vf gap24">
                 <div className="h4 grey-900">컬러를 선택해주세요.</div>
                 <div className="colors-box w100">
-                    <Input key={1} type="color_picker" label="메인컬러" />
-                    <Input key={2} type="color_picker" label="서브컬러" />
+                    <Input key={1} type="color_picker" label="메인컬러" takeInput={(e: any) => handleColor(e, "main")} />
+                    <Input key={2} type="color_picker" label="서브컬러" takeInput={(e: any) => handleColor(e, "sub")} />
                 </div>
             </div>
 
@@ -57,7 +78,7 @@ export default function FormMood(props: any) {
                                     key={mood}
                                     type="toggle"
                                     text={mood}
-                                    onClick={() => toggleMood(mood)}
+                                    takeInput={() => toggleMood(mood)}
                                 />
                             )
                         }

@@ -5,8 +5,12 @@ export default function Checkboxes(props: any) {
     const [toggleStatus, setToggleStatus] = useState(false)
 
     const handleClick = () => {
+        props.takeInput(props.title)
+    }
+
+    const handleToggle = () => {
         setToggleStatus(!toggleStatus)
-        props.onClick()
+        props.takeInput(props.text)
     }
 
     switch (props.type) {
@@ -14,12 +18,12 @@ export default function Checkboxes(props: any) {
             return (
                 <div
                     className={`${toggleStatus ? 'toggle-on' : 'toggle-off'} toggle`}
-                    onClick={handleClick}
+                    onClick={handleToggle}
                 >{props.text}</div>
             )
         case "checkTitle":
             return (
-                <label onClick={handleClick} className="cyberpunk-checkbox-label">
+                <label className="cyberpunk-checkbox-label">
                     <input onClick={handleClick} type="checkbox" className="cyberpunk-checkbox" />
                     {props.title}
                 </label>

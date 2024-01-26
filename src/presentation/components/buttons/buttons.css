@@ -68,7 +68,7 @@ button.learn-more .button-text {
   bottom: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  color:  var(--grey-900);
+  color: var(--grey-900);
   font-weight: 700;
   line-height: 1.6;
   text-align: center;
@@ -256,4 +256,66 @@ button:hover .button-text {
     outline: 0.2em solid var(--main-500);
     outline-offset: 0;
   }
+}
+
+.button-plus {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: var(--grey-700);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.7s;
+}
+
+.button-plus,
+.button-plus__icon,
+.button-plus__text {
+  transition: all 0.3s;
+}
+
+.button-plus .button-plus__text {
+  margin: 0 auto;
+  color: var(--grey-200);
+  font-weight: 500;
+  font-size: 14px;
+  font-family: Pretendard;
+}
+
+.button-plus .button-plus__icon {
+  position: absolute;
+  transform: translateX(50%);
+  height: 100%;
+  width: 39px;
+  background-color: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-plus .svg {
+  display: none;
+}
+
+.button-plus:hover .svg {
+  width: 20px;
+  fill: var(--grey-200);
+  display: block;
+}
+
+.button-plus:hover {
+  background: var(--grey-200);
+}
+
+.button-plus:hover .button-plus__text {
+  color: transparent;
+}
+
+.button-plus:hover .button-plus__icon {
+  width: 100%;
+  transform: translateX(0);
+  background-color: var(--grey-200);
 }

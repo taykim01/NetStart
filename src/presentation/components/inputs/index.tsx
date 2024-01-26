@@ -16,14 +16,14 @@ export default function Input(props: any) {
             setInputColor("")
         } else {
             setInputColor(`#${value}`)
+            props.takeInput(`#${value}`)
         }
     }
     const variableColor = inputColor.length > 6 ? inputColor : 'var(--grey-600)'
 
-
-
-    const handleInput = (input: string) => {
-        props.takeInput(input)
+    const handleInput = (e: any) => {
+        const value = e.target.value;
+        props.takeInput(value)
     }
 
     switch (props.type) {
@@ -61,7 +61,17 @@ export default function Input(props: any) {
             )
         case "textarea":
             return (
-                <textarea onChange={() => handleInput} />
+                <textarea
+                    onChange={(e: any) => handleInput(e)}
+                    placeholder={props.placeholder}
+                />
+            )
+        case "text_input":
+            return (
+                <input className="text-input-container"
+                    placeholder="입력하기..."
+                    onChange={handleInput}
+                />
             )
         default:
             return (
@@ -76,7 +86,8 @@ export default function Input(props: any) {
                         required
                         type="text"
                         className="input"
-                        onChange={() => handleInput}
+                        onBlur={(e: any) => handleInput(e)}
+                        onFocus={props.focusFunction}
                     />
                     <span className="bar" />
                     <label className="label">

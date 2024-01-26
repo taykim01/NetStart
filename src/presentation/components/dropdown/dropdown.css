@@ -1,0 +1,65 @@
+@import url("../../assets/styles/Global.css");
+
+.paste-button-drop {
+  position: relative;
+  display: block;
+  font-family: Pretendard;
+  width: 120px;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+.button-drop {
+  background-color: var(--grey-200);
+  color: var(--grey-700);
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 12px;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  font-size: 13px;
+  position: absolute;
+  z-index: 10;
+  min-width: 200px;
+  border: 2px solid var(--grey-700);
+  background-color: var(--grey-100);
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px 0px var(--main-shade);
+}
+
+.dropdown-content a {
+  color: var(--grey-700);
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+  transition: 0.1s;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--grey-200);
+  color: var(--grey-700);
+  border-radius: 10px;
+}
+
+.dropdown-content a:focus {
+  background-color: var(--grey-700);
+  color: var(--grey-200);
+}
+
+#del {
+  color: var(--indicator-danger);
+}
+
+.paste-button-drop:hover button-drop {
+  border-radius: 12px 12px 0px 0px;
+}
+
+.paste-button-drop:hover .dropdown-content {
+  display: block;
+}
