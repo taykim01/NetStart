@@ -5,14 +5,14 @@
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  padding: 40px 160px 0px 160px;
+  padding: 40px 12vw 0px 12vw;
   box-sizing: border-box;
 }
 
 .form-done {
   display: flex;
   height: 100vh;
-  padding: 40px 240px 0px 160px;
+  padding: 40px 18vw 0px 12vw;
   justify-content: space-between;
   box-sizing: border-box;
   align-items: center;

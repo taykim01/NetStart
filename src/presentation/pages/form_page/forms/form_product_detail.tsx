@@ -10,7 +10,7 @@ export default function FormProductDetail(props: any) {
     }
 
     return (
-        <div className="vf gap24">
+        <div className="vf gap36" style={{ width: "30vw" }}>
             <div className="hf ca gap12">
                 <Questions title="성함을 적어주세요." takeInput={handleInput} />
                 <Questions title="회사명을 적어주세요." takeInput={handleInput} />

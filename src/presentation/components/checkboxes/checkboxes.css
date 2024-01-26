@@ -50,8 +50,10 @@
 }
 
 .cyberpunk-checkbox-label {
+  font-family: Pretendard;
   font-size: 14px;
-  color: var(--grey-900);
+  font-weight: 500;
+  color: var(--grey-700);
   cursor: pointer;
   user-select: none;
   display: flex;

@@ -1,5 +1,9 @@
+.xp12 {
+  padding: 0 12px;
+}
+
 .xp16 {
-  padding: 0 20px;
+  padding: 0 16px;
 }
 
 .xp20 {
@@ -36,6 +40,10 @@
 .yp50 {
   padding-top: 60px;
   padding-bottom: 60px;
+}
+
+.p12 {
+  padding: 12px;
 }
 
 .p20 {

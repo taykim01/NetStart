@@ -7,7 +7,7 @@ const StepsContent = [
     },
     {
         step: 2,
-        title: "필요한 페이지 선택하기",
+        title: "페이지 선택하기",
         subtitle: "페이지 선택 후, 기능을 설명해주세요.",
         buttonText: "다음으로 넘어가기"
     },

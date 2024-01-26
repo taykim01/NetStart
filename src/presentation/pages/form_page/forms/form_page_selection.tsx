@@ -22,12 +22,12 @@ export default function FormPageSelection(props: any) {
                 firstAndLastGutter={true}
                 chevronWidth={chevronWidth}
             >
-                <Card title="랜딩 페이지에 필요한 정보를 적어주세요." contents={<TextareaCard />} />
-                <Card title="신청 시 필요한 정보를 적어주세요." contents={<FormCard />} />
-                <Card title="게시판에 필요한 정보를 적어주세요" contents={<TextareaCard />} />
-                <Card title="블로그에 필요한 정보를 적어주세요" contents={<TextareaCard />} />
-                <Card title="회원가입 시 필요한 정보를 적어주세요." contents={<SignUpCard />} />
-                <Card title="포트폴리오에 필요한 정보를 적어주세요." contents={<TextareaCard />} />
+                <Card pageName="랜딩 페이지" title="랜딩 페이지에 필요한 정보를 적어주세요." contents={<TextareaCard />} />
+                <Card pageName="신청 폼 페이지" title="신청 시 필요한 정보를 적어주세요." contents={<FormCard />} />
+                <Card pageName="커뮤니티 페이지" title="커뮤니티에 필요한 정보를 적어주세요" contents={<TextareaCard />} />
+                <Card pageName="게시판 페이지" title="블로그에 필요한 정보를 적어주세요" contents={<TextareaCard />} />
+                <Card pageName="회원가입 페이지" title="회원가입 시 필요한 정보를 적어주세요." contents={<SignUpCard />} />
+                <Card pageName="포트폴리오 페이지" title="포트폴리오에 필요한 정보를 적어주세요." contents={<TextareaCard />} />
             </ItemsCarousel>
         </div>
     );

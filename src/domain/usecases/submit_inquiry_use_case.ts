@@ -8,13 +8,14 @@ export default class SubmitInquiryUseCase {
     }
 
     async enrollInquiry(inquiry: InquiryModel, imageData: File){
+        let response;
         try {
             const client_repository = new ClientRepository()
             const logoUrl = (await client_repository.submitLogoAndGetUrl(imageData, inquiry.company)).payload
-            await client_repository.enrollInquiry(inquiry, logoUrl)
+            response = await client_repository.enrollInquiry(inquiry, logoUrl)
         } catch (error) {
             return new MyResponse(Result.Fail, "문의 등록에 실패했습니다.", error)
         }
-        return new MyResponse(Result.Success, "문의 등록에 성공했습니다.", "Successfully enrolled inquiry")
+        return new MyResponse(Result.Success, "문의 등록에 성공했습니다.", response)
     }
 }
