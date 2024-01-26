@@ -1,4 +1,4 @@
-import Textarea from "../../inputs/textarea";
+import Input from "../../inputs";
 
 
 export default function TextareaCard(props: any) {
@@ -9,7 +9,8 @@ export default function TextareaCard(props: any) {
     }
 
     return (
-        <Textarea
+        <Input
+            type="textarea"
             placeholder="설명해주세요"
             onChange={handleInput}
             resize={"none"}

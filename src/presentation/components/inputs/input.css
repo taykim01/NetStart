@@ -11,7 +11,7 @@
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 1.5px solid var(--dark);
+  border-bottom: 1.5px solid var(--grey-900);
   background: transparent;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .wave-group .label {
-  color: var(--dark);
+  color: var(--grey-900);
   font-size: 18px;
   font-weight: normal;
   position: absolute;
@@ -94,7 +94,7 @@ textarea {
   height: 100%;
   box-sizing: border-box;
   outline: none;
-  border: 1.5px solid var(--dark);
+  border: 1.5px solid var(--grey-900);
   border-radius: 12px;
   padding: 12px;
   background-color: transparent;
@@ -107,6 +107,6 @@ textarea {
 
 textarea:active,
 textarea:focus {
-  border: 1.5px solid var(--dark);
+  border: 1.5px solid var(--grey-900);
   transition: all 0.3s ease-in;
 }

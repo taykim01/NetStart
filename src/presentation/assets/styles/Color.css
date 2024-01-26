@@ -93,3 +93,7 @@
 .grey-100 {
   color: var(--grey--100);
 }
+
+.white {
+    color: var(--white);
+}

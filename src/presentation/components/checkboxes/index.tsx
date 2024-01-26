@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./checkboxes.css"
-import CheckAndTitle from "./check_title";
 
 export default function Checkboxes(props: any) {
     const [toggleStatus, setToggleStatus] = useState(false)
@@ -19,7 +18,12 @@ export default function Checkboxes(props: any) {
                 >{props.text}</div>
             )
         case "checkTitle":
-            return <CheckAndTitle takeInput={(e:any) => props.takeInput(e)} title={props.title} />
+            return (
+                <label onClick={handleClick} className="cyberpunk-checkbox-label">
+                    <input onClick={handleClick} type="checkbox" className="cyberpunk-checkbox" />
+                    {props.title}
+                </label>
+            )
 
         default:
             break;

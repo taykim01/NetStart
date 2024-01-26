@@ -25,6 +25,8 @@ html {
 }
 
 :root {
+  --background: #FFFFFF;
+  --white: #FFFFFF;
   --main--900: #021e6d;
   --main--800: #032b84;
   --main--700: #063ea4;

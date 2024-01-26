@@ -4,9 +4,9 @@ import "./header.css"
 export default function Header() {
     return (
         <div className="header">
-            <div className="hf ca gap120">
+            <div className="hf ca" style={{ gap: "8vw" }}>
                 <div className="h2 dark">NetStart</div>
-                <div className="p2 dark hf ca gap40">
+                <div className="p2 dark hf ca" style={{ gap: "2vw" }}>
                     <Button type="text_button" text="이용 방법" />
                     <Button type="text_button" text="장점" />
                     <Button type="text_button" text="가격" />
