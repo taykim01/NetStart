@@ -10,11 +10,11 @@ export default function MainPage() {
         <div className="main">
             <div className="vf gap48">
                 <div className="vf gap32">
-                    <div className="emph dark">
+                    <div className="emph grey-900">
                         세상에서 가장 쉽게<br />
                         웹사이트 만들기
                     </div>
-                    <div className="p1 dark">
+                    <div className="p1 grey-900">
                         다른 일도 바쁘니까, 이제 웹사이트 제작은 <span className="h4">NetStart</span>에게.
                     </div>
                 </div>

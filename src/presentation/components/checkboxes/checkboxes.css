@@ -1,9 +1,10 @@
 @import url("../../assets/styles/Global.css");
 
 .toggle {
-  padding: 8px 12px;
-  border-radius: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
   width: fit-content;
+  font-size: 12px;
 }
 
 .toggle-off {
@@ -12,7 +13,7 @@
 }
 
 .toggle-on {
-  background-color: var(--grey-900);
+  background-color: var(--grey-600);
   color: var(--white);
   transition: all 0.5s;
 }
@@ -21,7 +22,7 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  border: 2px solid var(--grey-900);
+  border: 2px solid var(--grey-700);
   border-radius: 5px;
   background-color: transparent;
   display: inline-block;
@@ -32,7 +33,7 @@
 
 .cyberpunk-checkbox:before {
   content: "";
-  background-color: var(--grey-900);
+  background-color: var(--grey-700);
   display: block;
   position: absolute;
   top: 50%;

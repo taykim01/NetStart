@@ -14,7 +14,7 @@ export default function Button(props: any) {
         case "text_button":
             return (
                 <div className="text-button">
-                    <div className="p2">{props.text}</div>
+                    <div className="h5">{props.text}</div>
                 </div>
             )
         case "arrow_button":

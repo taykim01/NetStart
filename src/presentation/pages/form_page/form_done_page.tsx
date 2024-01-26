@@ -10,11 +10,11 @@ export default function FormDonePage(props: any) {
                 style={{ width: 600, height: 300 }}
             />
             <div className="vf gap28" style={{ width: 320 }}>
-                <div className="h2 dark">모두 끝났어요!</div>
+                <div className="h2 grey-900">모두 끝났어요!</div>
                 <div className="vf gap8">
-                    <div className="p1 dark">3영업일 내 웹 제작 완료 후,</div>
-                    <div className="p1 dark"><span className="light">{props.phoneNum}010-7122-8287</span>로 연락을 드릴게요.</div>
-                    <div className="p1 dark">잠시만 기다려주세요.</div>
+                    <div className="p1 grey-900">3영업일 내 웹 제작 완료 후,</div>
+                    <div className="p1 grey-900"><span className="light">{props.phoneNum}010-7122-8287</span>로 연락을 드릴게요.</div>
+                    <div className="p1 grey-900">잠시만 기다려주세요.</div>
                 </div>
 
                 <Button text="홈으로 돌아가기" />

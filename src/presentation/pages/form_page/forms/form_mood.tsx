@@ -37,26 +37,32 @@ export default function FormMood(props: any) {
 
 
     return (
-        <div className="vf gap60 dark" style={{ width: 400 }}>
-            <div className="vf gap32">
-                <div className="h4 mood-description">{selectedMoods.length > 0 ? null : '~한'}{selectedMoods.join(", ")} 웹사이트</div>
+        <div className="vf gap80 grey-900" style={{ width: 400 }}>
+            <div className="vf gap24">
+                <div className="h4 grey-900">컬러를 선택해주세요.</div>
                 <div className="colors-box w100">
-                    <Input key={1} type="color_picker" label="Main" />
-                    <Input key={2} type="color_picker" label="Sub" />
+                    <Input key={1} type="color_picker" label="메인컬러" />
+                    <Input key={2} type="color_picker" label="서브컬러" />
                 </div>
             </div>
-            <div className="mood-box">
-                {
-                    moods.map(
-                        mood => <Checkboxes
-                            key={mood}
-                            type="toggle"
-                            text={mood}
-                            onClick={() => toggleMood(mood)}
-                        />
-                    )
-                }
 
+            <div className="vf gap16">
+            <div className="h4 grey-900">무드를 선택해주세요.</div>
+                <div className="vf gap12">
+                    <div className="p2 mood-description">{selectedMoods.length > 0 ? null : '~한'}{selectedMoods.join(", ")} 웹사이트</div>
+                    <div className="mood-box">
+                        {
+                            moods.map(
+                                mood => <Checkboxes
+                                    key={mood}
+                                    type="toggle"
+                                    text={mood}
+                                    onClick={() => toggleMood(mood)}
+                                />
+                            )
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )

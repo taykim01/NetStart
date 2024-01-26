@@ -5,14 +5,19 @@
 }
 
 .wave-group .input {
-  font-size: 16px;
-  padding: 10px 10px 10px 5px;
+  font-size: 14px;
+  font-family: Pretendard;
+  padding: 0px 2px 2px 0px;
   box-sizing: border-box;
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 1.5px solid var(--grey-900);
+  border-bottom: 1.5px solid var(--grey-200);
   background: transparent;
+}
+
+.input {
+  border-bottom: 1.5px solid var(--grey-900);
 }
 
 .wave-group .input:focus {
@@ -25,8 +30,8 @@
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: 5px;
-  top: 10px;
+  left: 0px;
+  top: 4px;
   display: flex;
 }
 
@@ -37,7 +42,7 @@
 
 .wave-group .input:focus ~ label .label-char,
 .wave-group .input:valid ~ label .label-char {
-  transform: translateY(-20px);
+  transform: translateY(-16px);
   font-size: 14px;
   font-family: Pretendard;
 }
@@ -94,7 +99,7 @@ textarea {
   height: 100%;
   box-sizing: border-box;
   outline: none;
-  border: 1.5px solid var(--grey-900);
+  border: 1.5px solid var(--grey-200);
   border-radius: 12px;
   padding: 12px;
   background-color: transparent;
@@ -107,6 +112,6 @@ textarea {
 
 textarea:active,
 textarea:focus {
-  border: 1.5px solid var(--grey-900);
+  border: 2px solid var(--main-500);
   transition: all 0.3s ease-in;
 }

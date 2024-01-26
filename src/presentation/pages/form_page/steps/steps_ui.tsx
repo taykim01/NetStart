@@ -2,7 +2,7 @@ import Button from "@/presentation/components/buttons";
 
 export default function StepsUI(props: any) {
     return (
-        <div className="vf gap20 dark" style={{ width: 400 }}>
+        <div className="vf gap20 grey-900" style={{ width: 400 }}>
             <div className="hf gap20 ca overline">
                 <div>나만의 웹사이트 만들기</div>
                 <div>{props.pageStep} / {props.totalLength}</div>

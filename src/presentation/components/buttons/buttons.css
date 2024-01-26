@@ -36,7 +36,7 @@ button.learn-more .circle .icon {
   top: 0;
   bottom: 0;
   margin: auto;
-  background: #fff;
+  background: var(--white);
 }
 
 button.learn-more .circle .icon.arrow {
@@ -54,8 +54,8 @@ button.learn-more .circle .icon.arrow::before {
   right: 0.0625rem;
   width: 0.625rem;
   height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
+  border-top: 0.125rem solid var(--white);
+  border-right: 0.125rem solid var(--white);
   transform: rotate(45deg);
 }
 
@@ -68,7 +68,7 @@ button.learn-more .button-text {
   bottom: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  color: #282936;
+  color:  var(--grey-900);
   font-weight: 700;
   line-height: 1.6;
   text-align: center;
@@ -80,31 +80,30 @@ button:hover .circle {
 }
 
 button:hover .circle .icon.arrow {
-  background: #fff;
+  background: var(--white);
   transform: translate(1rem, 0);
 }
 
 button:hover .button-text {
-  color: #fff;
+  color: var(--white);
 }
 
 .button {
   padding: 12px 24px;
   position: relative;
   background-color: transparent;
-  cursor: pointer;
-  border: 2px solid #252525;
   overflow: hidden;
-  border-radius: 30px;
-  color: #333;
+  border-radius: 12px;
+  color: var(--white);
+  background-color: var(--main-500);
   transition: all 0.5s ease-in-out;
 }
 
 .btn-txt {
   z-index: 1;
-  font-weight: 800;
-  letter-spacing: 4px;
-  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 14px;
 }
 
 .type1::after {
@@ -113,7 +112,7 @@ button:hover .button-text {
   left: 0;
   top: 0;
   transition: all 0.5s ease-in-out;
-  background-color: #333;
+  background-color: var(--main-500);
   border-radius: 30px;
   visibility: hidden;
   height: 10px;
@@ -122,9 +121,10 @@ button:hover .button-text {
 }
 
 .button:hover {
-  box-shadow: 1px 1px 200px #252525;
-  color: #fff;
+  box-shadow: 1px 1px 200px var(--main-500);
+  color: var(--white);
   border: none;
+  background-color: var(--main-500);
 }
 
 .type1:hover::after {
@@ -142,10 +142,10 @@ button:hover .button-text {
 
 .text-button:active,
 .text-button:hover {
-  background-color: var(--grey-900);
+  background-color: var(--main-500);
   color: var(--white);
   transition: all 0.3s ease;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 200px var(--main-500);
 }
 
 .btn-container-right {
@@ -166,11 +166,11 @@ button:hover .button-text {
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-size: 25px;
-  color: #9ee5fa;
-  background: #353535;
+  color: var(--main-500);
+  background: var(--main-200);
   transition: 1s;
   border-radius: 100px;
-  box-shadow: 0 0 0.2em 0 #353535;
+  box-shadow: 0 0 0.2em 0 var(--main-500);
 }
 
 .btn-content:hover,
@@ -180,7 +180,8 @@ button:hover .button-text {
   animation: btn-content 1s;
   outline: 0.1em solid transparent;
   outline-offset: 0.2em;
-  box-shadow: 0 0 0.4em 0 #353535;
+  background: var(--main-500);
+  box-shadow: 0 0 0.4em 0 var(--main-500);
 }
 
 .btn-content .icon-arrow {
@@ -229,29 +230,29 @@ button:hover .button-text {
 /* SVG animations */
 @keyframes color_anim {
   0% {
-    fill: white;
+    fill: var(--white);
   }
 
   50% {
-    fill: #353535;
+    fill: var(--main-500);
   }
 
   100% {
-    fill: #9ee5fa;
+    fill: var(--main-500);
   }
 }
 
 /* Button animations */
 @-webkit-keyframes btn-content {
   0% {
-    outline: 0.2em solid #353535;
+    outline: 0.2em solid var(--main-500);
     outline-offset: 0;
   }
 }
 
 @keyframes btn-content {
   0% {
-    outline: 0.2em solid #353535;
+    outline: 0.2em solid var(--main-500);
     outline-offset: 0;
   }
 }

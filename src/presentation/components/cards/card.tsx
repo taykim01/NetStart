@@ -16,7 +16,7 @@ export default function Card(props: any) {
                 </div>
             </div>
             <div className="card-container">
-                <div className="dark h5">{props.title}</div>
+                <div className="grey-900 h5">{props.title}</div>
                 {props.contents}
             </div>
         </div>

@@ -1,3 +1,32 @@
+:root {
+  --background: #ffffff;
+  --white: #ffffff;
+  --main-900: #021e6d;
+  --main-800: #032b84;
+  --main-700: #063ea4;
+  --main-600: #0853c4;
+  --main-500: #0c6ce5;
+  --main-400: #4598ef;
+  --main-300: #6ab5f7;
+  --main-200: #9cd3fc;
+  --main-100: #cdebfd;
+  --indicator-success: #6ab510;
+  --indicator-success-light: #e9fbd3;
+  --indicator-warning: #fc9607;
+  --indicator-warning-light: #fff4cc;
+  --indicator-danger: #ff382d;
+  --indicator-danger-light: #ffe5d4;
+  --grey-900: #181f28;
+  --grey-800: #36485c;
+  --grey-700: #53637b;
+  --grey-600: #708095;
+  --grey-500: #8993aa;
+  --grey-400: #a2aac0;
+  --grey-300: #bfc6d9;
+  --grey-200: #d7dce7;
+  --grey-100: #f2f4f6;
+}
+
 .main-900 {
   color: var(--main-900);
 }
@@ -35,65 +64,65 @@
 }
 
 .indicator-success {
-  color: var(--indicator---success);
+  color: var(--indicator-success);
 }
 
 .indicator-success-light {
-  color: var(--indicator---success--light);
+  color: var(--indicator-success-light);
 }
 
 .indicator-warning {
-  color: var(--indicator---warning);
+  color: var(--indicator-warning);
 }
 
 .indicator-warning-light {
-  color: var(--indicator---warning--light);
+  color: var(--indicator-warning-light);
 }
 
 .indicator-danger {
-  color: var(--indicator---danger);
+  color: var(--indicator-danger);
 }
 
 .indicator-danger-light {
-  color: var(--indicator---danger--light);
+  color: var(--indicator-danger-light);
 }
 
 .grey-900 {
-  color: var(--grey--900);
+  color: var(--grey-900);
 }
 
 .grey-800 {
-  color: var(--grey--800);
+  color: var(--grey-800);
 }
 
 .grey-700 {
-  color: var(--grey--700);
+  color: var(--grey-700);
 }
 
 .grey-600 {
-  color: var(--grey--600);
+  color: var(--grey-600);
 }
 
 .grey-500 {
-  color: var(--grey--500);
+  color: var(--grey-500);
 }
 
 .grey-400 {
-  color: var(--grey--400);
+  color: var(--grey-400);
 }
 
 .grey-300 {
-  color: var(--grey--300);
+  color: var(--grey-300);
 }
 
 .grey-200 {
-  color: var(--grey--200);
+  color: var(--grey-200);
 }
 
 .grey-100 {
-  color: var(--grey--100);
+  color: var(--grey-100);
 }
 
 .white {
-    color: var(--white);
+  color: var(--white);
 }

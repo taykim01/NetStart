@@ -4,7 +4,6 @@ import { useState } from "react"
 export default function Input(props: any) {
     const [inputColor, setInputColor] = useState("")
     let idCounter = 0;
-    const id = `wave-group-${idCounter++}`; // assign a unique id to each ColorPicker
     const applyColor = (e: any) => {
         let value = e.target.value
         if (value.includes("#")) {
@@ -26,32 +25,28 @@ export default function Input(props: any) {
     switch (props.type) {
         case "color_picker":
             return (
-                <div className="wave-group" id={id}>
+                <div className="wave-group" id={props.label} style={{ padding: "10px 10px 10px 0px" }} >
                     <style>
-                        {`#${id} .bar:before, #${id} .bar:after {
-                                background: ${variableColor};
-                            }
-                            #${id} .input {
+                        {`
+
+                            #${props.label} .input {
                                 border-bottom: 2px solid ${variableColor};
                             }
-                            #${id} .input:focus ~ label .label-char,
-                            #${id} .input:valid ~ label .label-char {
-                                color: ${inputColor || 'var(--grey-900)'}
-                            }
+
                         `}
                     </style>
                     <input
-                        required
+                        id={props.label}
                         type="text"
                         className="input"
                         onChange={applyColor}
                         value={inputColor}
                         style={{ color: variableColor }}
                     />
-                    <span className="bar" />
+                    <span className="bar" id={props.label} style={{ backgroundColor: variableColor }} />
                     <label className="label">
                         {props.label?.split('').map((char: string, idx: number) => (
-                            <span key={idx} className="label-char">{char}</span>
+                            <span key={idx} style={{ color: variableColor }} className="label-char">{char}</span>
                         ))}
                     </label>
                 </div>
@@ -64,17 +59,10 @@ export default function Input(props: any) {
             return (
                 <div className="wave-group">
                     <style>
-                        {`.bar:before, .bar:after {
-                        background: white;
-                    }
-                    .input {
-                        border-bottom: 1.5px solid var(--grey-900);
-                    }
-                    .input:focus ~ label .label-char,
-                    .input:valid ~ label .label-char {
-                        color: 'var(--grey-900)'
-                    }
-                `}
+                        {`.bar:before,
+                        .bar:after {
+                        background: var(--main-500);
+                        }`}
                     </style>
                     <input
                         required
