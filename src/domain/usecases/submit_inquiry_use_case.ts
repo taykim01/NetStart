@@ -11,7 +11,8 @@ export default class SubmitInquiryUseCase {
         let response;
         try {
             const client_repository = new ClientRepository()
-            const logoUrl = (await client_repository.submitLogoAndGetUrl(imageData, inquiry.company)).payload
+            const logoUrl = await (await client_repository.submitLogoAndGetUrl(imageData, inquiry.productName)).payload
+            console.log(logoUrl)
             response = await client_repository.enrollInquiry(inquiry, logoUrl)
         } catch (error) {
             return new MyResponse(Result.Fail, "문의 등록에 실패했습니다.", error)

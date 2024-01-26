@@ -6,7 +6,7 @@ export default function FormsUI(props: any) {
 
     switch (props.steps) {
         case 0:
-            return <FormMood />
+            return <FormMood takeInput={(pic:any) => props.takeInput(pic)} />
         case 1:
             return <FormPageSelection />
         case 2:

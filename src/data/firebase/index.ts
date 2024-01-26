@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
+  apiKey: "AIzaSyCp-8Zr_VV_-NrvWh6mGXP6qRY2WrRPwFA",
+  authDomain: "netstart-bc462.firebaseapp.com",
+  projectId: "netstart-bc462",
+  storageBucket: "netstart-bc462.appspot.com",
+  messagingSenderId: "427192160971",
+  appId: "1:427192160971:web:a68d93954b6758db8cc14e",
 };
 
 const app = initializeApp(firebaseConfig);

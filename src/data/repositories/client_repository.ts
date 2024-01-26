@@ -11,7 +11,7 @@ export default class ClientRepository {
     try {
       const newInquiry = new InquiryModel(
         inquiry.picName,
-        inquiry.company,
+        inquiry.productName,
         inquiry.contact,
         inquiry.productDetail,
         inquiry.productConsumer,
@@ -20,14 +20,15 @@ export default class ClientRepository {
         inquiry.otherInquiry,
         inquiry.mood,
         inquiry.color,
-        inquiry.landingPageSelection,
-        inquiry.formPageSelection,
-        inquiry.boardPageSelection,
-        inquiry.blogPageSelection,
-        inquiry.authPageSelection,
-        inquiry.portfolioPageSelection,
+        inquiry.landing,
+        inquiry.form,
+        inquiry.board,
+        inquiry.blog,
+        inquiry.auth,
+        inquiry.portfolio,
         timestamp
-      );
+      ).toObject();
+      console.log(newInquiry)
       const docRef = doc(collection(db, "inquiries"));
       await setDoc(docRef, newInquiry);
     } catch (error) {

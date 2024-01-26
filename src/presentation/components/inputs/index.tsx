@@ -26,6 +26,13 @@ export default function Input(props: any) {
         props.takeInput(value)
     }
 
+    const [fileName, setFileName] = useState("")
+    const handleUpload = (e: any) => {
+        const file = e.target.files[0]
+        setFileName(file.name)
+        props.takeInput(file)
+    }
+
     switch (props.type) {
         case "color_picker":
             return (
@@ -72,6 +79,19 @@ export default function Input(props: any) {
                     placeholder="입력하기..."
                     onChange={handleInput}
                 />
+            )
+        case "upload":
+            return (
+                <label htmlFor="upload" className="text-input-container hf ca">
+                    <input
+                        id="upload"
+                        name="upload"
+                        type="file"
+                        style={{ display: "none"}}
+                        onChange={handleUpload}
+                    />
+                    <span className="p3 grey-700">{fileName || "업로드하기..."}</span>
+                </label>
             )
         default:
             return (

@@ -1,5 +1,6 @@
 import Checkboxes from "@/presentation/components/checkboxes";
 import Input from "@/presentation/components/inputs";
+import { applyFile } from "@/presentation/states/features/fileSlice";
 import { applyColor, applyInput } from "@/presentation/states/features/inputSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -34,18 +35,17 @@ export default function FormMood(props: any) {
     const toggleMood = (mood: string) => {
         let updatedMoods;
         if (selectedMoods.includes(mood)) {
-          updatedMoods = selectedMoods.filter(selectedMood => selectedMood !== mood);
+            updatedMoods = selectedMoods.filter(selectedMood => selectedMood !== mood);
         } else {
-          updatedMoods = [...selectedMoods, mood];
+            updatedMoods = [...selectedMoods, mood];
         }
-      
+
         setSelectedMoods(updatedMoods);
         dispatch(applyInput({
-          ...inputContents,
-          mood: updatedMoods.join(", ")
+            ...inputContents,
+            mood: updatedMoods.join(", ")
         }));
-      }
-      
+    }
 
     const handleColor = (hex: string, type: string) => {
         dispatch(
@@ -54,12 +54,15 @@ export default function FormMood(props: any) {
                 [type]: hex
             })
         )
-        
+    }
+
+    const handleUpload = (pic: any) => {
+        props.takeInput(pic)
     }
 
     return (
-        <div className="vf gap80 grey-900" style={{ width: 400 }}>
-            <div className="vf gap24">
+        <div className="vf gap60 grey-900" style={{ width: 400 }}>
+            <div className="vf gap20">
                 <div className="h4 grey-900">컬러를 선택해주세요.</div>
                 <div className="colors-box w100">
                     <Input key={1} type="color_picker" label="메인컬러" takeInput={(e: any) => handleColor(e, "main")} />
@@ -68,7 +71,12 @@ export default function FormMood(props: any) {
             </div>
 
             <div className="vf gap16">
-            <div className="h4 grey-900">무드를 선택해주세요.</div>
+                <div className="h4 grey-900">로고가 있다면, 업로드해주세요.</div>
+                <Input type="upload" takeInput={handleUpload} />
+            </div>
+
+            <div className="vf gap16">
+                <div className="h4 grey-900">무드를 선택해주세요.</div>
                 <div className="vf gap12">
                     <div className="p2 mood-description">{selectedMoods.length > 0 ? null : '~한'}{selectedMoods.join(", ")} 웹사이트</div>
                     <div className="mood-box">

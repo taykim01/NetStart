@@ -2,7 +2,7 @@ import { Contact, Color, PageSelection } from "../Types";
 
 export default class InquiryModel {
   picName: string;
-  company: string;
+  productName: string;
   contact: Contact;
   productDetail: string;
   productConsumer: string;
@@ -11,17 +11,17 @@ export default class InquiryModel {
   otherInquiry: string;
   mood: string[];
   color: Color;
-  landingPageSelection: PageSelection;
-  formPageSelection: PageSelection;
-  boardPageSelection: PageSelection;
-  blogPageSelection: PageSelection;
-  authPageSelection: PageSelection;
-  portfolioPageSelection: PageSelection;
+  landing: PageSelection;
+  form: PageSelection;
+  board: PageSelection;
+  blog: PageSelection;
+  auth: PageSelection;
+  portfolio: PageSelection;
   createdAt: Date;
 
   constructor(
     picName: string,
-    company: string,
+    productName: string,
     contact: Contact,
     productDetail: string,
     productConsumer: string,
@@ -30,16 +30,16 @@ export default class InquiryModel {
     otherInquiry: string,
     mood: string[],
     color: Color,
-    landingPageSelection: PageSelection,
-    formPageSelection: PageSelection,
-    boardPageSelection: PageSelection,
-    blogPageSelection: PageSelection,
-    authPageSelection: PageSelection,
-    portfolioPageSelection: PageSelection,
+    landing: PageSelection,
+    form: PageSelection,
+    board: PageSelection,
+    blog: PageSelection,
+    auth: PageSelection,
+    portfolio: PageSelection,
     createdAt: Date,
   ) {
     this.picName = picName;
-    this.company = company;
+    this.productName = productName;
     this.contact = contact;
     this.productDetail = productDetail;
     this.productConsumer = productConsumer;
@@ -48,19 +48,19 @@ export default class InquiryModel {
     this.otherInquiry = otherInquiry;
     this.mood = mood;
     this.color = color;
-    this.landingPageSelection = landingPageSelection;
-    this.formPageSelection = formPageSelection;
-    this.boardPageSelection = boardPageSelection;
-    this.blogPageSelection = blogPageSelection;
-    this.authPageSelection = authPageSelection;
-    this.portfolioPageSelection = portfolioPageSelection;
+    this.landing = landing;
+    this.form = form;
+    this.board = board;
+    this.blog = blog;
+    this.auth = auth;
+    this.portfolio = portfolio;
     this.createdAt = createdAt;
   }
 
   toObject() {
     return {
       picName: this.picName,
-      company: this.company,
+      productName: this.productName,
       contact: this.contact,
       productDetail: this.productDetail,
       productConsumer: this.productConsumer,
@@ -69,12 +69,12 @@ export default class InquiryModel {
       otherInquiry: this.otherInquiry,
       mood: this.mood,
       color: this.color,
-      landingPageSelection: this.landingPageSelection,
-      formPageSelection: this.formPageSelection,
-      boardPageSelection: this.boardPageSelection,
-      blogPageSelection: this.blogPageSelection,
-      authPageSelection: this.authPageSelection,
-      portfolioPageSelection: this.portfolioPageSelection,
+      landing: this.landing,
+      form: this.form,
+      board: this.board,
+      blog: this.blog,
+      auth: this.auth,
+      portfolio: this.portfolio,
       createdAt: this.createdAt,
     };
   }

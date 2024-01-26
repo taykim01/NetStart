@@ -116,6 +116,10 @@ textarea:focus {
   transition: all 0.3s ease-in;
 }
 
+input {
+  caret-color: var(--main-500);
+}
+
 .text-input-container {
   width: 100%;
   height: 40px;
@@ -127,4 +131,15 @@ textarea:focus {
   font-size: 14px;
   font-weight: 400;
   box-sizing: border-box;
+}
+
+input[type="file"] {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+  color: none
+}
+
+input[type="file"]::file-selector-button {
+  display: none;
 }
