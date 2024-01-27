@@ -12,7 +12,10 @@ export default function StepsUI(props: any) {
                     <div className="h1">{props.title}</div>
                     <div className="p3 grey-700">{props.subtitle}</div>
                 </div>
-                <Button text={props.buttonText} onClick={props.onClick} />
+                <div className="vf gap8 w100">
+                    <Button text={props.buttonText} onClick={props.onClick} />
+                    <Button type="default_sub" text={props.backButtonText} onClick={props.backClick} />
+                </div>
             </div>
         </div>
     )

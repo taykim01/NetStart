@@ -75,7 +75,7 @@ export default function FormCard(props: any) {
 
 
     return (
-        <div className="vf gap8">
+        <div className="vf gap8 h100" style={{ overflowY: "scroll", height: 321 }} >
             {
                 questionEntry.map(
                     (question, index) => <Questions
@@ -85,6 +85,7 @@ export default function FormCard(props: any) {
                 )
             }
             <Button type="plus_button" onClick={addQuestion} />
+            <div style={{ height: 100 }} />
         </div>
     )
 }

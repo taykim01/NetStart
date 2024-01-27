@@ -17,17 +17,20 @@ export default function FormProductDetail(props: any) {
     }
 
     return (
-        <div className="vf gap36" style={{ width: "30vw" }}>
+        <div className="vf gap40" style={{ width: "30vw" }}>
             <div className="hf ca gap12">
                 <Questions title="성함을 적어주세요." takeInput={(input: string) => handleInput(input, "picName")} />
                 <Questions title="서비스명을 적어주세요." takeInput={(input: string) => handleInput(input, "productName")} />
             </div>
-            <Questions title="연락처를 적어주세요." takeInput={(input: string) => handleInput(input, "contact")} />
+            <Questions title="전화번호나 이메일을 적어주세요." takeInput={(input: string) => handleInput(input, "contact")} />
             <Questions title="서비스를 설명해주세요." takeInput={(input: string) => handleInput(input, "productDetail")} />
             <Questions title="서비스의 주 고객에 대해 설명해주세요." takeInput={(input: string) => handleInput(input, "productConsumer")} />
             <Questions title="웹사이트를 통해 달성하고자 하는 주 목적은 무엇인가요?" takeInput={(input: string) => handleInput(input, "productAims")} />
             <div className="vf gap8 w100">
-                <div className="overline grey-700">기타 요청사항이 있으면 적어주세요.</div>
+                <div className="hf gap4">
+                    <div className="overline grey-700">기타 요청사항이 있으면 적어주세요.</div>
+                    <div className="overline indicator-danger">*</div>
+                </div>
                 <Input type="textarea" takeInput={(input: string) => handleInput(input, "otherInquiry")} />
             </div>
         </div>
@@ -43,7 +46,10 @@ function Questions(props: any) {
 
     return (
         <div className="vf gap4 w100">
-            <div className="overline grey-700">{props.title}</div>
+            <div className="hf gap4">
+                <div className="overline grey-700">{props.title}</div>
+                <div className="overline indicator-danger">*</div>
+            </div>
             <Input takeInput={handleInput} />
         </div>
     )

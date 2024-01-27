@@ -64,9 +64,15 @@ export default function Button(props: any) {
                     <span className="button-plus__icon"><svg className="svg" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></span>
                 </button>
             )
+        case "default_sub":
+            return (
+                <button className="button sub-button" onClick={props.onClick}>
+                    <span className="btn-txt">{props.text}</span>
+                </button>
+            )
         default:
             return (
-                <button className="button type1" onClick={props.onClick}>
+                <button className="button main-button" onClick={props.onClick}>
                     <span className="btn-txt">{props.text}</span>
                 </button>
             )

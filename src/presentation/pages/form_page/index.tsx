@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import StepsUI from "./steps/steps_ui";
 import StepsContent from "./steps/steps_content";
 import FormsUI from "./forms";
@@ -8,11 +8,13 @@ import FormDonePage from "./form_done_page";
 import SubmitInquiryUseCase from "@/domain/usecases/submit_inquiry_use_case";
 import { useSelector } from "react-redux";
 import MyResponse, { Result } from "@/domain/MyResponse";
+import { ScrollContext } from "@/presentation/states/scroll_context";
 
 export default function FormPage() {
     const [steps, setSteps] = useState(0)
     const inputContents = useSelector((state:any) => state.input.value)
     const [file, setFile] = useState<File | null>(null);
+    const { scrollTo, refS1 } = useContext(ScrollContext);
 
     const increaseStep = async () => {
         const submit_inquiry_use_case = new SubmitInquiryUseCase()
@@ -31,6 +33,14 @@ export default function FormPage() {
         console.log(reply.payload)
     }
 
+    const decreaseStep = () => {
+        if (steps === 0) {
+            scrollTo(refS1)
+        } else {
+            setSteps(steps - 1)
+        }
+    }
+
     switch (steps < StepsContent.length) {
         case true:
             return (
@@ -41,12 +51,13 @@ export default function FormPage() {
                         title={StepsContent[steps].title}
                         subtitle={StepsContent[steps].subtitle}
                         buttonText={StepsContent[steps].buttonText}
+                        backButtonText={StepsContent[steps].backButtonText}
                         onClick={increaseStep}
+                        backClick={decreaseStep}
                     />
                     <FormsUI
                         takeInput={setFile}
                         steps={steps}
-                        onClick={increaseStep}
                     />
         
                 </div>

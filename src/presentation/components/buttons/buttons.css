@@ -88,17 +88,6 @@ button:hover .button-text {
   color: var(--white);
 }
 
-.button {
-  padding: 12px 24px;
-  position: relative;
-  background-color: transparent;
-  overflow: hidden;
-  border-radius: 12px;
-  color: var(--white);
-  background-color: var(--main-500);
-  transition: all 0.5s ease-in-out;
-}
-
 .btn-txt {
   z-index: 1;
   font-weight: 600;
@@ -106,30 +95,34 @@ button:hover .button-text {
   font-size: 14px;
 }
 
-.type1::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
+.button {
+  padding: 12px 24px;
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  border-radius: 12px;
   transition: all 0.5s ease-in-out;
-  background-color: var(--main-500);
-  border-radius: 30px;
-  visibility: hidden;
-  height: 10px;
-  width: 10px;
-  z-index: -1;
 }
 
-.button:hover {
+.main-button {
+  background-color: var(--main-500);
+  color: var(--white);
+}
+
+.sub-button {
+  background-color: var(--grey-200);
+  color: var(--grey-700);
+}
+
+.main-button:hover {
   box-shadow: 1px 1px 200px var(--main-500);
   color: var(--white);
-  border: none;
   background-color: var(--main-500);
 }
 
-.type1:hover::after {
-  visibility: visible;
-  transform: scale(100) translateX(2px);
+.sub-button:hover {
+  box-shadow: 1px 1px 200px var(--grey-700);
+  background-color: var(--grey-200);
 }
 
 .text-button {
@@ -269,6 +262,7 @@ button:hover .button-text {
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.7s;
+  min-height: 32px;
 }
 
 .button-plus,
