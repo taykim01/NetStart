@@ -85,6 +85,7 @@ export default function FormCard(props: any) {
             {
                 questionEntry.map(
                     (question, index) => <Questions
+                        key={index}
                         takeInput={(input: string) => editQuestion(input, index)}
                         sendSelection={(input: string) => editQuestionType(input, index)}
                         defaultValue={question}
