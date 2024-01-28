@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./checkboxes.css"
 
 export default function Checkboxes(props: any) {
-    const [toggleStatus, setToggleStatus] = useState(false)
+    const [toggleStatus, setToggleStatus] = useState(props.isTrue)
 
     const handleClick = () => {
         props.takeInput(props.title)
@@ -24,7 +24,7 @@ export default function Checkboxes(props: any) {
         case "checkTitle":
             return (
                 <label className="cyberpunk-checkbox-label">
-                    <input onClick={handleClick} type="checkbox" className="cyberpunk-checkbox" />
+                    <input onClick={handleClick} type="checkbox" checked={props.isTrue} className="cyberpunk-checkbox" />
                     {props.title}
                 </label>
             )

@@ -10,7 +10,7 @@ export const emptyInquiry = {
     productAims: "",
     logoUrl: "",
     otherInquiry: "",
-    mood: "",
+    mood: [],
     color: {
       main: "",
       sub: ""

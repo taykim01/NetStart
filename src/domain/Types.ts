@@ -13,9 +13,4 @@ type Color = {
   sub: string;
 };
 
-type Contact = {
-  type: "phoneNumber" | "email";
-  content: string;
-};
-
-export type { PageSelection, Color, Contact }
+export type { PageSelection, Color };

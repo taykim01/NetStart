@@ -10,7 +10,7 @@ export default function SignUpCard(props: any) {
 
     const questionTypes = ["이름", "성별", "생년월일", "이메일", "전화번호", "ID", "비밀번호", "약관 동의"]
 
-    const [questions, setQuestions] = useState<string[]>([])
+    const [questions, setQuestions] = useState<string[]>([] || inputContents.auth)
     const handleInput = (input: any) => {
         let updatedQuestions;
         if (questions.includes(input)) {
@@ -21,11 +21,17 @@ export default function SignUpCard(props: any) {
         setQuestions(updatedQuestions);
         dispatch(applyInput({
             ...inputContents,
-            auth: updatedQuestions.join(", ")
+            auth: updatedQuestions
         }));
     }
 
-    const [othersStatus, setOthersStatus] = useState(false)
+    const othersItem = inputContents.auth
+    ? inputContents.auth
+        .find((element: string) => element.includes('기타'))
+        ?.split(': ')[1]
+    : null
+
+    const [othersStatus, setOthersStatus] = useState(othersItem ? true : false)
 
     const handleOthersCheck = () => {
         setOthersStatus(!othersStatus)
@@ -34,7 +40,7 @@ export default function SignUpCard(props: any) {
         setQuestions(updatedQuestions);
         dispatch(applyInput({
             ...inputContents,
-            auth: updatedQuestions.join(", ")
+            auth: updatedQuestions
         }));
     }
 
@@ -46,7 +52,7 @@ export default function SignUpCard(props: any) {
 
         dispatch(applyInput({
             ...inputContents,
-            auth: updatedQuestions.join(", ")
+            auth: updatedQuestions
         }));
     }
 
@@ -56,7 +62,7 @@ export default function SignUpCard(props: any) {
         setQuestions(updatedQuestions);
         dispatch(applyInput({
             ...inputContents,
-            auth: updatedQuestions.join(", ")
+            auth: updatedQuestions
         }));
     }
 
@@ -69,6 +75,7 @@ export default function SignUpCard(props: any) {
                         type="checkTitle"
                         title={name}
                         takeInput={(arg: object) => handleInput(arg)}
+                        isTrue={inputContents.auth.includes(name)}
                     />
                 )
             }
@@ -77,6 +84,7 @@ export default function SignUpCard(props: any) {
                     type="checkTitle"
                     title="기타"
                     takeInput={handleOthersCheck}
+                    isTrue={othersItem}
                 />
                 {
                     othersStatus &&
@@ -84,6 +92,7 @@ export default function SignUpCard(props: any) {
                         <Input
                             takeInput={handleOthersInput}
                             focusFunction={deleteRepetition}
+                            value={othersItem}
                         />
                     </div>
                 }

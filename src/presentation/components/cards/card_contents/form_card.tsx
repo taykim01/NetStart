@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { applyInput } from "@/presentation/states/features/inputSlice"
 
 export default function FormCard(props: any) {
-    const dispatch = useDispatch()
     const inputContents = useSelector((state: any) => state.input.value)
+    const dispatch = useDispatch()
 
     type QuestionType = {
         index: number;
@@ -17,9 +17,15 @@ export default function FormCard(props: any) {
         type: string;
     };
 
-    const [questionEntry, setQuestionEntry] = useState<QuestionType[]>([]);
-
+    const [questionEntry, setQuestionEntry] = useState<QuestionType[]>(() => inputContents.form || []);
     const [lastIndex, setLastIndex] = useState(0);
+
+    useEffect(() => {
+        if (inputContents.form.includes("empty")) {
+            setQuestionEntry([])
+        }
+    }, [inputContents.form])
+
 
     const addQuestion = () => {
         const emptyQuestion: QuestionType = {
@@ -81,6 +87,7 @@ export default function FormCard(props: any) {
                     (question, index) => <Questions
                         takeInput={(input: string) => editQuestion(input, index)}
                         sendSelection={(input: string) => editQuestionType(input, index)}
+                        defaultValue={question}
                     />
                 )
             }
@@ -102,8 +109,8 @@ function Questions(props: any) {
 
     return (
         <div className="hf gap4">
-            <Input type="text_input" takeInput={(input: string) => handleInput(input)} />
-            <DropDown takeInput={(input: string) => handleTypeSelection(input)} />
+            <Input type="text_input" value={props.defaultValue.question} takeInput={(input: string) => handleInput(input)} />
+            <DropDown takeInput={(input: string) => handleTypeSelection(input)} defaultValue={props.defaultValue.type} />
         </div>
     )
 }

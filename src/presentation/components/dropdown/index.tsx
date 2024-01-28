@@ -7,7 +7,7 @@ export default function DropDown(props: any) {
 
     const questionTypes = ["단답형", "장문형", "숫자", "날짜", "단일 선택", "다중 선택", "기타"]
 
-    const [selectedQuestion, setSelectedQuestion] = useState("")
+    const [selectedQuestion, setSelectedQuestion] = useState("" || props.defaultValue)
     const handleClick = (question: string) => {
         setSelectedQuestion(question)
         props.takeInput(question)

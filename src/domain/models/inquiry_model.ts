@@ -1,15 +1,15 @@
-import { Contact, Color, PageSelection } from "../Types";
+import { Color, PageSelection } from "../Types";
 
 export default class InquiryModel {
+  createdAt: Date;
   picName: string;
   productName: string;
-  contact: Contact;
+  contact: string;
   productDetail: string;
   productConsumer: string;
   productAims: string;
-  logoUrl: string;
   otherInquiry: string;
-  mood: string[];
+  mood: [];
   color: Color;
   landing: PageSelection;
   form: PageSelection;
@@ -17,18 +17,18 @@ export default class InquiryModel {
   blog: PageSelection;
   auth: PageSelection;
   portfolio: PageSelection;
-  createdAt: Date;
+  logoUrl: string;
 
   constructor(
+    createdAt: Date,
     picName: string,
     productName: string,
-    contact: Contact,
+    contact: string,
     productDetail: string,
     productConsumer: string,
     productAims: string,
-    logoUrl: string,
     otherInquiry: string,
-    mood: string[],
+    mood: [],
     color: Color,
     landing: PageSelection,
     form: PageSelection,
@@ -36,15 +36,15 @@ export default class InquiryModel {
     blog: PageSelection,
     auth: PageSelection,
     portfolio: PageSelection,
-    createdAt: Date,
+    logoUrl: string,
   ) {
+    this.createdAt = createdAt;
     this.picName = picName;
     this.productName = productName;
     this.contact = contact;
     this.productDetail = productDetail;
     this.productConsumer = productConsumer;
     this.productAims = productAims;
-    this.logoUrl = logoUrl;
     this.otherInquiry = otherInquiry;
     this.mood = mood;
     this.color = color;
@@ -54,18 +54,18 @@ export default class InquiryModel {
     this.blog = blog;
     this.auth = auth;
     this.portfolio = portfolio;
-    this.createdAt = createdAt;
+    this.logoUrl = logoUrl;
   }
 
   toObject() {
     return {
+      createdAt: this.createdAt,
       picName: this.picName,
       productName: this.productName,
       contact: this.contact,
       productDetail: this.productDetail,
       productConsumer: this.productConsumer,
       productAims: this.productAims,
-      logoUrl: this.logoUrl,
       otherInquiry: this.otherInquiry,
       mood: this.mood,
       color: this.color,
@@ -75,7 +75,7 @@ export default class InquiryModel {
       blog: this.blog,
       auth: this.auth,
       portfolio: this.portfolio,
-      createdAt: this.createdAt,
+      logoUrl: this.logoUrl,
     };
   }
 }

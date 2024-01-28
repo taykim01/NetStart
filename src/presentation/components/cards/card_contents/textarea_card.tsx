@@ -14,6 +14,7 @@ export default function TextareaCard(props: any) {
             placeholder={props.placeholder}
             takeInput={handleInput}
             resize={"none"}
+            value={props.value}
         />
     );
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import StepsUI from "./steps/steps_ui";
 import StepsContent from "./steps/steps_content";
 import FormsUI from "./forms";
@@ -13,24 +13,30 @@ import { ScrollContext } from "@/presentation/states/scroll_context";
 export default function FormPage() {
     const [steps, setSteps] = useState(0)
     const inputContents = useSelector((state:any) => state.input.value)
-    const [file, setFile] = useState<File | null>(null);
+    const [file, setFile] = useState();
     const { scrollTo, refS1 } = useContext(ScrollContext);
+    const [error, setError] = useState([])
 
     const increaseStep = async () => {
         const submit_inquiry_use_case = new SubmitInquiryUseCase()
         let response;
         try {
-            if (steps === StepsContent.length - 1 && file) {
-                response = await submit_inquiry_use_case.enrollInquiry(inputContents, file)
+            if (steps === StepsContent.length - 1) {
+                const validation = submit_inquiry_use_case.validateInquiry(inputContents)
+                if (validation.result === Result.Success) {
+                    response = await submit_inquiry_use_case.enrollInquiry(inputContents, file)
+                    if (response.result === Result.Success) setSteps(steps + 1)
+                } else {
+                    setError(validation.payload)
+                }
             } else {
                 setSteps(steps + 1)
             }
         } catch (error) {
-            const reply = new MyResponse(Result.Fail, "네트워크 오류입니다. 관리자게에 문의주세요.", error)
-            console.log(reply.payload)
+            console.log(new MyResponse(Result.Fail, "네트워크 오류입니다. 관리자게에 문의주세요.", error))
         }
-        const reply = new MyResponse(Result.Success, "성공적으로 다음 화면으로 넘어가거나 신청서 제출에 성공했습니다.", response)
-        console.log(reply.payload)
+        console.log(new MyResponse(Result.Success, "성공적으로 다음 화면으로 넘어가거나 신청서 제출에 성공했습니다.", response))
+
     }
 
     const decreaseStep = () => {
@@ -58,6 +64,7 @@ export default function FormPage() {
                     <FormsUI
                         takeInput={setFile}
                         steps={steps}
+                        error={error}
                     />
         
                 </div>
@@ -65,7 +72,7 @@ export default function FormPage() {
             )
     
         case false:
-            return <FormDonePage />
+            return <FormDonePage back={() => setSteps(0)} />
     }
 
 

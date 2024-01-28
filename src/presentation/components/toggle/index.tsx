@@ -1,19 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./toggle.css"
 
 export default function Toggle(props: any) {
-    const [status, setStatus] = useState(true)
+    const [status, setStatus] = useState(props.isTrue)
 
     const handleClick = () => {
+        props.takeInput(!status)
         setStatus(!status)
-        props.takeInput(status)
     }
 
     return (
         <label className="toggle-switch-label">
             <div className="toggle-switch">
-                <input className="toggle-state" type="checkbox" name="check" value="check" onClick={handleClick} />
-                <div className="indicator"></div>
+                <input className={`toggle-state ${status ? "is-checked" : null}`} type="checkbox" name="check" onClick={handleClick} />
+                <div className={`indicator ${status ? "is-checked" : null}`}></div>
             </div>
         </label>
     )

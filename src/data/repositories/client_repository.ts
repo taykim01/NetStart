@@ -10,13 +10,13 @@ export default class ClientRepository {
     const timestamp = new Date();
     try {
       const newInquiry = new InquiryModel(
+        timestamp,
         inquiry.picName,
         inquiry.productName,
         inquiry.contact,
         inquiry.productDetail,
         inquiry.productConsumer,
         inquiry.productAims,
-        logoUrl,
         inquiry.otherInquiry,
         inquiry.mood,
         inquiry.color,
@@ -26,9 +26,8 @@ export default class ClientRepository {
         inquiry.blog,
         inquiry.auth,
         inquiry.portfolio,
-        timestamp
+        logoUrl,
       ).toObject();
-      console.log(newInquiry)
       const docRef = doc(collection(db, "inquiries"));
       await setDoc(docRef, newInquiry);
     } catch (error) {

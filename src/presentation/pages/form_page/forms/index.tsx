@@ -10,7 +10,7 @@ export default function FormsUI(props: any) {
         case 1:
             return <FormPageSelection />
         case 2:
-            return <FormProductDetail />
+            return <FormProductDetail error={props.error} />
         default:
             break;
     }

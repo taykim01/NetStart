@@ -2,7 +2,7 @@ import "./input.css"
 import { useState } from "react"
 
 export default function Input(props: any) {
-    const [inputColor, setInputColor] = useState("")
+    const [inputColor, setInputColor] = useState(props.value || "")
     const id = props.label;
     const applyColor = (e: any) => {
         let value = e.target.value
@@ -26,7 +26,7 @@ export default function Input(props: any) {
         props.takeInput(value)
     }
 
-    const [fileName, setFileName] = useState("")
+    const [fileName, setFileName] = useState(props.filename || "")
     const handleUpload = (e: any) => {
         const file = e.target.files[0]
         setFileName(file.name)
@@ -71,13 +71,16 @@ export default function Input(props: any) {
                 <textarea
                     onChange={(e: any) => handleInput(e)}
                     placeholder={props.placeholder}
+                    value={props.value === null ? "" : props.value}
                 />
             )
         case "text_input":
             return (
-                <input className="text-input-container"
+                <input
+                    className="text-input-container"
                     placeholder="입력하기..."
                     onChange={handleInput}
+                    value={props.value}
                 />
             )
         case "upload":
@@ -89,6 +92,7 @@ export default function Input(props: any) {
                         type="file"
                         style={{ display: "none"}}
                         onChange={handleUpload}
+                        value={props.value}
                     />
                     <span className="p3 grey-700">{fileName || "업로드하기..."}</span>
                 </label>
@@ -108,6 +112,8 @@ export default function Input(props: any) {
                         className="input"
                         onBlur={(e: any) => handleInput(e)}
                         onFocus={props.focusFunction}
+                        value={props.value}
+                        defaultValue={props.value || ""}
                     />
                     <span className="bar" />
                     <label className="label">

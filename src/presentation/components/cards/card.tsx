@@ -1,12 +1,49 @@
 import { useState } from "react"
 import Toggle from "../toggle"
 import "./cards.css"
+import { useDispatch, useSelector } from "react-redux"
+import { applyInput } from "@/presentation/states/features/inputSlice"
 
 export default function Card(props: any) {
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(props.isTrue)
+    const dispatch = useDispatch()
+    const inputContents = useSelector((state: any) => state.input.value)
 
     const getToggleValue = (e: boolean) => {
         setToggle(e)
+        if (!e) {
+            if (props.pageName === "랜딩 페이지") {
+                dispatch(applyInput({
+                    ...inputContents,
+                    landing: null
+                }))
+            } else if (props.pageName === "신청 폼 페이지") {
+                dispatch(applyInput({
+                    ...inputContents,
+                    form: ["empty"]
+                }))
+            } else if (props.pageName === "커뮤니티 페이지") {
+                dispatch(applyInput({
+                    ...inputContents,
+                    board: null
+                }))
+            } else if (props.pageName === "정보 게시판 페이지") {
+                dispatch(applyInput({
+                    ...inputContents,
+                    blog: null
+                }))
+            } else if (props.pageName === "회원가입 페이지") {
+                dispatch(applyInput({
+                    ...inputContents,
+                    auth: []
+                }))
+            } else if (props.pageName === "포트폴리오 페이지") {
+                dispatch(applyInput({
+                    ...inputContents,
+                    portfolio: null
+                }))
+            }
+        }
     }
 
     return (
@@ -25,7 +62,7 @@ export default function Card(props: any) {
                 </div>
                 <div className="hf gap12 ca">
                     <div className="h6 grey-700">{toggle ? `${props.pageName} 사용` : "사용하지 않음"}</div>
-                    <Toggle takeInput={getToggleValue} />
+                    <Toggle takeInput={getToggleValue} isTrue={props.isTrue} />
                 </div>
             </div>
 

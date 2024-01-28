@@ -31,11 +31,11 @@ export default function FormMood(props: any) {
         "깔끔한"
     ]
 
-    const [selectedMoods, setSelectedMoods] = useState<string[]>([])
+    const [selectedMoods, setSelectedMoods] = useState(inputContents.mood)
     const toggleMood = (mood: string) => {
         let updatedMoods;
         if (selectedMoods.includes(mood)) {
-            updatedMoods = selectedMoods.filter(selectedMood => selectedMood !== mood);
+            updatedMoods = selectedMoods.filter((selectedMood: string) => selectedMood !== mood);
         } else {
             updatedMoods = [...selectedMoods, mood];
         }
@@ -43,7 +43,7 @@ export default function FormMood(props: any) {
         setSelectedMoods(updatedMoods);
         dispatch(applyInput({
             ...inputContents,
-            mood: updatedMoods.join(", ")
+            mood: updatedMoods
         }));
     }
 
@@ -58,6 +58,10 @@ export default function FormMood(props: any) {
 
     const handleUpload = (pic: any) => {
         props.takeInput(pic)
+        dispatch(applyInput({
+            ...inputContents,
+            logoUrl: pic.name
+        }));
     }
 
     return (
@@ -65,14 +69,14 @@ export default function FormMood(props: any) {
             <div className="vf gap20">
                 <div className="h4 grey-900">컬러를 선택해주세요.</div>
                 <div className="colors-box w100">
-                    <Input key={1} type="color_picker" label="메인컬러" takeInput={(e: any) => handleColor(e, "main")} />
-                    <Input key={2} type="color_picker" label="서브컬러" takeInput={(e: any) => handleColor(e, "sub")} />
+                    <Input key={1} type="color_picker" label="메인컬러" takeInput={(e: any) => handleColor(e, "main")} value={inputContents.color.main} />
+                    <Input key={2} type="color_picker" label="서브컬러" takeInput={(e: any) => handleColor(e, "sub")} value={inputContents.color.sub} />
                 </div>
             </div>
 
             <div className="vf gap16">
                 <div className="h4 grey-900">로고가 있다면, 업로드해주세요.</div>
-                <Input type="upload" takeInput={handleUpload} />
+                <Input type="upload" takeInput={handleUpload} filename={inputContents.logoUrl} />
             </div>
 
             <div className="vf gap16">
@@ -87,6 +91,7 @@ export default function FormMood(props: any) {
                                     type="toggle"
                                     text={mood}
                                     takeInput={() => toggleMood(mood)}
+                                    isTrue={selectedMoods.includes(mood)}
                                 />
                             )
                         }
