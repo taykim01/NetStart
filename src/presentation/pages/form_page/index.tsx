@@ -9,6 +9,7 @@ import SubmitInquiryUseCase from "@/domain/usecases/submit_inquiry_use_case";
 import { useSelector } from "react-redux";
 import MyResponse, { Result } from "@/domain/MyResponse";
 import { ScrollContext } from "@/presentation/states/scroll_context";
+import Loading from "@/presentation/components/loading";
 
 export default function FormPage() {
     const [steps, setSteps] = useState(0)
@@ -17,16 +18,22 @@ export default function FormPage() {
     const { scrollTo, refS1 } = useContext(ScrollContext);
     const [error, setError] = useState([])
     const responsive = useSelector((state: any) => state.responsive.responsive)
+    const [isLoading, setIsLoading] = useState(false)
 
     const increaseStep = async () => {
         const submit_inquiry_use_case = new SubmitInquiryUseCase()
         let response;
+        let reply;
         try {
             if (steps === StepsContent.length - 1) {
                 const validation = submit_inquiry_use_case.validateInquiry(inputContents)
                 if (validation.result === Result.Success) {
+                    setIsLoading(true)
                     response = await submit_inquiry_use_case.enrollInquiry(inputContents, file)
-                    if (response.result === Result.Success) setSteps(steps + 1)
+                    if (response.result === Result.Success) {
+                        setSteps(steps + 1);
+                        setIsLoading(false)
+                    }
                 } else {
                     setError(validation.payload)
                 }
@@ -34,10 +41,10 @@ export default function FormPage() {
                 setSteps(steps + 1)
             }
         } catch (error) {
-            console.log(new MyResponse(Result.Fail, "네트워크 오류입니다. 관리자게에 문의주세요.", error))
+            reply = new MyResponse(Result.Fail, "네트워크 오류입니다. 관리자게에 문의주세요.", error)
+            alert(reply.message)
         }
-        console.log(new MyResponse(Result.Success, "성공적으로 다음 화면으로 넘어가거나 신청서 제출에 성공했습니다.", response))
-
+        reply = new MyResponse(Result.Success, "성공적으로 다음 화면으로 넘어가거나 신청서 제출에 성공했습니다.", response)
     }
 
     const decreaseStep = () => {
@@ -47,6 +54,10 @@ export default function FormPage() {
             setSteps(steps - 1)
         }
     }
+
+    useEffect(() => {
+        console.log(steps, StepsContent.length - 1)
+    }, [steps])
 
     switch (steps < StepsContent.length) {
         case true:
@@ -69,6 +80,9 @@ export default function FormPage() {
                                 steps={steps}
                                 error={error}
                             />
+                            {
+                                isLoading && <Loading />
+                            }
                         </div>
                     )
 

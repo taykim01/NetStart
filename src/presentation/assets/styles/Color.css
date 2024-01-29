@@ -25,7 +25,8 @@
   --grey-300: #bfc6d9;
   --grey-200: #d7dce7;
   --grey-100: #f2f4f6;
-  --main-shade: rgba(12, 108, 229, 0.25)
+  --main-shade: rgba(12, 108, 229, 0.25);
+  --grey-shade: rgba(112, 128, 149, 0.25);
 }
 
 .main-900 {
