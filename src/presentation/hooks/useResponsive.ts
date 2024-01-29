@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { changeWidth } from "../states/features/responsiveSlice";
 
 export const useViewportWidth = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
   const dispatch = useDispatch();
 
   useEffect(() => {
