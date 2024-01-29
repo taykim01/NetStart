@@ -1,3 +1,5 @@
+'use client'
+
 import Button from "@/presentation/components/buttons";
 import Card from "@/presentation/components/cards/card";
 import FormCard from "@/presentation/components/cards/card_contents/form_card";
