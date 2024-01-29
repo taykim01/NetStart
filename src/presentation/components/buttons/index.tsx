@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux"
 import "./buttons.css"
 
 export default function Button(props: any) {
+    const responsive = useSelector((state: any) => state.responsive.responsive)
+
     switch (props.type) {
         case "learn_more":
             return (
@@ -18,6 +21,7 @@ export default function Button(props: any) {
                 </div>
             )
         case "arrow_button":
+            
             return (
                 <div className={`btn-container-${props.direction}`} onClick={props.onClick}>
                     <div className="btn-content">

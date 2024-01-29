@@ -8,8 +8,13 @@
 }
 
 .emph {
-  font-size: 48px;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.emph2 {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .h1 {

@@ -4,13 +4,14 @@ import FormCard from "@/presentation/components/cards/card_contents/form_card";
 import SignUpCard from "@/presentation/components/cards/card_contents/sign_up_card";
 import TextareaCard from "@/presentation/components/cards/card_contents/textarea_card";
 import { applyInput } from "@/presentation/states/features/inputSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemsCarousel from "react-items-carousel"
 import { useDispatch, useSelector } from "react-redux";
 
 export default function FormPageSelection(props: any) {
     const dispatch = useDispatch()
     const inputContents = useSelector((state: any) => state.input.value)
+    const responsive = useSelector((state: any) => state.responsive.responsive)
 
     const [activeItemIndex, setActiveItemIndex] = useState(0);
     const chevronWidth = 80;
@@ -39,18 +40,36 @@ export default function FormPageSelection(props: any) {
         "내 작품을 전시할 수 있는\n포트폴리오 페이지입니다.\n\n 전시에 필요한 정보를 제공해주세요."
     ]
 
+    const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+    useEffect(() => {
+      const handleResize = () => {
+        setInnerWidth(window.innerWidth);
+      };
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+
     return (
-        <div style={{ padding: `0 ${chevronWidth}px`, width: 720, marginRight: -140 }}>
+        <div style={
+            responsive === "desktop"
+            ? { padding: `0 ${chevronWidth}px`, width: "70%", marginRight: -160 }
+            : responsive === "mobile"
+                ? { width: "100%" }
+                : {}
+        }>
             <ItemsCarousel
                 requestToChangeActive={setActiveItemIndex}
                 activeItemIndex={activeItemIndex}
-                numberOfCards={2}
-                leftChevron={<Button type="arrow_button" direction="left" />}
-                rightChevron={<Button type="arrow_button" direction="right" />}
-                outsideChevron
+                numberOfCards={(innerWidth * 0.7) / 440}
+                leftChevron={<div style={{ transform: "scale(0.8)" }}><Button type="arrow_button" direction="left" /></div>}
+                rightChevron={<div style={{ transform: "scale(0.8)" }}><Button type="arrow_button" direction="right" /></div>}
+                outsideChevron={true}
                 infiniteLoop={false}
-                firstAndLastGutter={true}
-                chevronWidth={chevronWidth}
+                firstAndLastGutter={responsive === "desktop"}
+                chevronWidth={responsive === "desktop" ? chevronWidth : (chevronWidth / 4)}
             >
                 <Card
                     pageName="랜딩 페이지"

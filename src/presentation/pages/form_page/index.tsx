@@ -12,10 +12,11 @@ import { ScrollContext } from "@/presentation/states/scroll_context";
 
 export default function FormPage() {
     const [steps, setSteps] = useState(0)
-    const inputContents = useSelector((state:any) => state.input.value)
+    const inputContents = useSelector((state: any) => state.input.value)
     const [file, setFile] = useState();
     const { scrollTo, refS1 } = useContext(ScrollContext);
     const [error, setError] = useState([])
+    const responsive = useSelector((state: any) => state.responsive.responsive)
 
     const increaseStep = async () => {
         const submit_inquiry_use_case = new SubmitInquiryUseCase()
@@ -49,28 +50,52 @@ export default function FormPage() {
 
     switch (steps < StepsContent.length) {
         case true:
-            return (
-                <div className="main">
-                    <StepsUI
-                        pageStep={StepsContent[steps].step}
-                        totalLength={StepsContent.length}
-                        title={StepsContent[steps].title}
-                        subtitle={StepsContent[steps].subtitle}
-                        buttonText={StepsContent[steps].buttonText}
-                        backButtonText={StepsContent[steps].backButtonText}
-                        onClick={increaseStep}
-                        backClick={decreaseStep}
-                    />
-                    <FormsUI
-                        takeInput={setFile}
-                        steps={steps}
-                        error={error}
-                    />
-        
-                </div>
-        
-            )
-    
+            switch (responsive) {
+                case "desktop":
+                    return (
+                        <div className="main">
+                            <StepsUI
+                                pageStep={StepsContent[steps].step}
+                                totalLength={StepsContent.length}
+                                title={StepsContent[steps].title}
+                                subtitle={StepsContent[steps].subtitle}
+                                buttonText={StepsContent[steps].buttonText}
+                                backButtonText={StepsContent[steps].backButtonText}
+                                onClick={increaseStep}
+                                backClick={decreaseStep}
+                            />
+                            <FormsUI
+                                takeInput={setFile}
+                                steps={steps}
+                                error={error}
+                            />
+                        </div>
+                    )
+
+                case "mobile":
+                    return (
+                        <div className="main-mobile">
+                            <StepsUI
+                                pageStep={StepsContent[steps].step}
+                                totalLength={StepsContent.length}
+                                title={StepsContent[steps].title}
+                                subtitle={StepsContent[steps].subtitle}
+                                buttonText={StepsContent[steps].buttonText}
+                                backButtonText={StepsContent[steps].backButtonText}
+                                onClick={increaseStep}
+                                backClick={decreaseStep}
+                                contents={
+                                    <FormsUI
+                                        takeInput={setFile}
+                                        steps={steps}
+                                        error={error}
+                                    />
+                                }
+                            />
+                        </div>
+                    )
+            }
+
         case false:
             return <FormDonePage back={() => setSteps(0)} />
     }

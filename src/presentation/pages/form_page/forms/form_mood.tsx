@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function FormMood(props: any) {
     const dispatch = useDispatch()
     const inputContents = useSelector((state: any) => state.input.value)
+    const responsive = useSelector((state: any) => state.responsive.responsive)
 
     const moods: string[] = [
         "부드러운",
@@ -64,40 +65,83 @@ export default function FormMood(props: any) {
         }));
     }
 
-    return (
-        <div className="vf gap60 grey-900" style={{ width: 400 }}>
-            <div className="vf gap20">
-                <div className="h4 grey-900">컬러를 선택해주세요.</div>
-                <div className="colors-box w100">
-                    <Input key={1} type="color_picker" label="메인컬러" takeInput={(e: any) => handleColor(e, "main")} value={inputContents.color.main} />
-                    <Input key={2} type="color_picker" label="서브컬러" takeInput={(e: any) => handleColor(e, "sub")} value={inputContents.color.sub} />
-                </div>
-            </div>
+    switch (responsive) {
+        case "desktop":
+            return (
+                <div className="vf gap60 grey-900" style={{ width: 400 }}>
+                    <div className="vf gap20">
+                        <div className="h4 grey-900">컬러를 선택해주세요.</div>
+                        <div className="colors-box w100">
+                            <Input key={1} type="color_picker" label="메인컬러" takeInput={(e: any) => handleColor(e, "main")} value={inputContents.color.main} />
+                            <Input key={2} type="color_picker" label="서브컬러" takeInput={(e: any) => handleColor(e, "sub")} value={inputContents.color.sub} />
+                        </div>
+                    </div>
 
-            <div className="vf gap16">
-                <div className="h4 grey-900">로고가 있다면, 업로드해주세요.</div>
-                <Input type="upload" takeInput={handleUpload} filename={inputContents.logoUrl} />
-            </div>
+                    <div className="vf gap16">
+                        <div className="h4 grey-900">로고가 있다면, 업로드해주세요.</div>
+                        <Input type="upload" takeInput={handleUpload} filename={inputContents.logoUrl} />
+                    </div>
 
-            <div className="vf gap16">
-                <div className="h4 grey-900">무드를 선택해주세요.</div>
-                <div className="vf gap12">
-                    <div className="p2 mood-description">{selectedMoods.length > 0 ? null : '~한'}{selectedMoods.join(", ")} 웹사이트</div>
-                    <div className="mood-box">
-                        {
-                            moods.map(
-                                mood => <Checkboxes
-                                    key={mood}
-                                    type="toggle"
-                                    text={mood}
-                                    takeInput={() => toggleMood(mood)}
-                                    isTrue={selectedMoods.includes(mood)}
-                                />
-                            )
-                        }
+                    <div className="vf gap16">
+                        <div className="h4 grey-900">무드를 선택해주세요.</div>
+                        <div className="vf gap12">
+                            <div className="p2 mood-description">{selectedMoods.length > 0 ? null : '~한'}{selectedMoods.join(", ")} 웹사이트</div>
+                            <div className="mood-box">
+                                {
+                                    moods.map(
+                                        mood => <Checkboxes
+                                            key={mood}
+                                            type="toggle"
+                                            text={mood}
+                                            takeInput={() => toggleMood(mood)}
+                                            isTrue={selectedMoods.includes(mood)}
+                                        />
+                                    )
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    )
+            )
+
+        case "mobile":
+            return (
+                <div className="vf gap48 grey-900 w100" >
+                    <div className="vf gap20">
+                        <div className="h5 grey-900">컬러를 선택해주세요.</div>
+                        <div className="colors-box w100">
+                            <Input key={1} type="color_picker" label="메인컬러" takeInput={(e: any) => handleColor(e, "main")} value={inputContents.color.main} />
+                            <Input key={2} type="color_picker" label="서브컬러" takeInput={(e: any) => handleColor(e, "sub")} value={inputContents.color.sub} />
+                        </div>
+                    </div>
+        
+                    <div className="vf gap16">
+                        <div className="h5 grey-900">로고가 있다면, 업로드해주세요.</div>
+                        <Input type="upload" takeInput={handleUpload} filename={inputContents.logoUrl} />
+                    </div>
+        
+                    <div className="vf gap16">
+                        <div className="h5 grey-900">무드를 선택해주세요.</div>
+                        <div className="vf gap12">
+                            <div className="p2 mood-description">{selectedMoods.length > 0 ? null : '~한'}{selectedMoods.join(", ")} 웹사이트</div>
+                            <div className="mood-box">
+                                {
+                                    moods.map(
+                                        mood => <Checkboxes
+                                            key={mood}
+                                            type="toggle"
+                                            text={mood}
+                                            takeInput={() => toggleMood(mood)}
+                                            isTrue={selectedMoods.includes(mood)}
+                                        />
+                                    )
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+    }
+
+
 }

@@ -5,8 +5,20 @@
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  padding: 40px 12vw 0px 12vw;
+  padding: 40px 11vw 0px 11vw;
   box-sizing: border-box;
+  width: 100%;
+}
+
+.main-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 25vh 8vw 0 8vw;
+  box-sizing: border-box;
+  width: 100%;
+  gap: 32px;
 }
 
 .form-done {
@@ -16,6 +28,16 @@
   justify-content: space-between;
   box-sizing: border-box;
   align-items: center;
+}
+
+.form-done-mobile {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20vh 8vw 0 8vw;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 24px;
 }
 
 .mood-description {

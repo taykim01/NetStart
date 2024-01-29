@@ -19,17 +19,14 @@ export const useViewportWidth = () => {
     };
 
     let responsive;
-    if (width <= breakingPoints.mobile) {
-      // 모바일
+    if (width <= breakingPoints.mobile) { // 모바일
       responsive = "mobile";
-    } else if (
+    } else if ( // 태블릿
       breakingPoints.mobile < width &&
       width <= breakingPoints.tablet
     ) {
-      // 태블릿
-      responsive = "desktop";
-    } else {
-      // 데스크탑
+      responsive = "mobile";
+    } else { // 데스크탑
       responsive = "desktop";
     }
 
@@ -40,7 +37,6 @@ export const useViewportWidth = () => {
       })
     );
 
-    // Clean up function
     return () => {
       window.removeEventListener("resize", handleResize);
     };

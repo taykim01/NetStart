@@ -6,6 +6,7 @@ import { applyInput } from "@/presentation/states/features/inputSlice"
 export default function FormProductDetail(props: any) {
     const dispatch = useDispatch()
     const inputContents = useSelector((state: any) => state.input.value)
+    const responsive = useSelector((state: any) => state.responsive.responsive )
 
     const handleInput = (input: string, key: string) => {
         dispatch(
@@ -17,7 +18,7 @@ export default function FormProductDetail(props: any) {
     }
 
     return (
-        <div className="vf gap40" style={{ width: "30vw" }}>
+        <div className={`vf ${responsive === "desktop" ? "gap40" : "gap28 pt20"}`} style={responsive === "desktop" ? { width: "30vw" } : {width: "100%"}}>
             <div className="hf ca gap12">
                 <Questions title="성함을 적어주세요." takeInput={(input: string) => handleInput(input, "picName")} error={props.error.includes("picName")} />
                 <Questions title="서비스명을 적어주세요." takeInput={(input: string) => handleInput(input, "productName")} error={props.error.includes("productName")} />
