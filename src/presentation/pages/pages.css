@@ -22,6 +22,27 @@
   margin: 25vh 0;
 }
 
+.pages_manual-page {
+  padding: 25vh 22vw 15vh 22vw;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.pages_manual-impact {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: var(--grey-100);
+  box-shadow: 20px 20px 60px var(--grey-shade), -20px -20px 60px var(--white);
+  padding: 48px 56px;
+  box-sizing: border-box;
+}
+
 .pages_block {
   display: flex;
   flex-direction: column;

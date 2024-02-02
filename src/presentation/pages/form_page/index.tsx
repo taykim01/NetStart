@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import MyResponse, { Result } from "@/domain/MyResponse";
 import { ScrollContext } from "@/presentation/states/scroll_context";
 import Loading from "@/presentation/components/loading";
+import FormManual from "./forms/form_manual";
 
 export default function FormPage() {
     const [steps, setSteps] = useState(0)
@@ -25,7 +26,7 @@ export default function FormPage() {
         let response;
         let reply;
         try {
-            if (steps === StepsContent.length - 1) {
+            if (steps === StepsContent.length) {
                 const validation = submit_inquiry_use_case.validateInquiry(inputContents)
                 if (validation.result === Result.Success) {
                     setIsLoading(true)
@@ -55,19 +56,21 @@ export default function FormPage() {
         }
     }
 
-    switch (steps < StepsContent.length) {
-        case true:
+    switch (true) {
+        case (steps === 0):
+            return <FormManual onClick={increaseStep} />
+        case (steps > 0 && steps <= StepsContent.length):
             switch (responsive) {
                 case "desktop":
                     return (
                         <div className="main">
                             <StepsUI
-                                pageStep={StepsContent[steps].step}
+                                pageStep={StepsContent[steps - 1].step}
                                 totalLength={StepsContent.length}
-                                title={StepsContent[steps].title}
-                                subtitle={StepsContent[steps].subtitle}
-                                buttonText={StepsContent[steps].buttonText}
-                                backButtonText={StepsContent[steps].backButtonText}
+                                title={StepsContent[steps - 1].title}
+                                subtitle={StepsContent[steps - 1].subtitle}
+                                buttonText={StepsContent[steps - 1].buttonText}
+                                backButtonText={StepsContent[steps - 1].backButtonText}
                                 onClick={increaseStep}
                                 backClick={decreaseStep}
                             />
@@ -106,7 +109,7 @@ export default function FormPage() {
                     )
             }
 
-        case false:
+        case (steps > StepsContent.length):
             return <FormDonePage back={() => setSteps(0)} />
     }
 

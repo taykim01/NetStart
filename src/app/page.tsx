@@ -14,6 +14,7 @@ export default function Home() {
   const refS1 = useRef(null)
   const refS2 = useRef(null)
   const refS3 = useRef(null)
+  const refS4 = useRef(null)
 
   const scrollTo = (location: any) => {
     const top = location.current.getBoundingClientRect().top + window.pageYOffset;
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <Provider store={store}>
-      <ScrollContext.Provider value={{ scrollTo, refS1, refS2, refS3 }}>
+      <ScrollContext.Provider value={{ scrollTo, refS1, refS2, refS3, refS4 }}>
         <main>
           <Header />
           <div ref={refS1}><MainPage /></div>
