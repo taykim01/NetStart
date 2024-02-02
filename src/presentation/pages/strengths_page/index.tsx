@@ -77,7 +77,7 @@ export default function StrengthsPage(props: any) {
                         <Button text="제작하러 가기" onClick={() => scrollTo(refS2)} />
                     </div>
                     <div className="vf gap12" style={{ width: "42vw" }}>
-                        <div className="h6 grey-900">NetStart에서 제공하는 과정</div>
+                        <div className="h5 grey-700">NetStart에서 제공하는 과정</div>
                         {/* 자동 슬라이드 구현 필요 */}
                         <div className="pages_continuous-slider-track">
                             {

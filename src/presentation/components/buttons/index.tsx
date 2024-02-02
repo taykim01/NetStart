@@ -16,7 +16,7 @@ export default function Button(props: any) {
             )
         case "text_button":
             return (
-                <div className="text-button">
+                <div className="text-button" onClick={props.onClick}>
                     <div className="h5">{props.text}</div>
                 </div>
             )

@@ -8,9 +8,9 @@ export default function FormsUI(props: any) {
         case 0:
             return <FormMood takeInput={(pic:any) => props.takeInput(pic)} />
         case 1:
-            return <FormPageSelection />
-        case 2:
             return <FormProductDetail error={props.error} />
+        case 2:
+            return <FormPageSelection />
         default:
             break;
     }

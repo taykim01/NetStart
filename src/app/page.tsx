@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "@/presentation/states/store";
 import { ScrollContext } from "@/presentation/states/scroll_context";
 import StrengthsPage from "@/presentation/pages/strengths_page";
+import Footer from "@/presentation/components/footer";
 
 export default function Home() {
   const refS1 = useRef(null)
@@ -27,6 +28,7 @@ export default function Home() {
           <div ref={refS1}><MainPage /></div>
           <StrengthsPage reference={refS3} />
           <div ref={refS2}><FormPage /></div>
+          <Footer />
         </main>
       </ ScrollContext.Provider >
     </ Provider>
