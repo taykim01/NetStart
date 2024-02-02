@@ -15,15 +15,8 @@ export default function FormPageSelection(props: any) {
     const inputContents = useSelector((state: any) => state.input.value)
     const responsive = useSelector((state: any) => state.responsive.responsive)
 
-    const [activeItemIndex, setActiveItemIndex] = useState(0);
-    const chevronWidth = 80;
-
     const handleInput = (key: string, input: any) => {
-        if (key === "form") {
-            console.log(input)
-        } else if (key === "auth") {
-
-        } else {
+        if (key !== "form" && key !== "auth") {
             dispatch(
                 applyInput({
                     ...inputContents,
@@ -54,6 +47,8 @@ export default function FormPageSelection(props: any) {
       };
     }, []);
 
+    const [activeItemIndex, setActiveItemIndex] = useState(0);
+    const chevronWidth = 80;
     return (
         <div style={
             responsive === "desktop"

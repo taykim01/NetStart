@@ -1,5 +1,5 @@
 import { ScrollContext } from "@/presentation/states/scroll_context";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Button from "../buttons"
 import "./header.css"
 import { useSelector } from "react-redux";
@@ -8,10 +8,6 @@ import Hamburger from "../hamburger";
 export default function Header() {
     const { scrollTo, refS1, refS2 } = useContext(ScrollContext);
     const responsive = useSelector((state: any) => state.responsive.responsive)
-
-    useEffect(() => {
-        console.log(responsive)
-    }, [responsive])
 
     switch (responsive) {
         case "desktop":

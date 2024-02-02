@@ -1,6 +1,6 @@
 "use client"
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import StepsUI from "./steps/steps_ui";
 import StepsContent from "./steps/steps_content";
 import FormsUI from "./forms";
@@ -54,10 +54,6 @@ export default function FormPage() {
             setSteps(steps - 1)
         }
     }
-
-    useEffect(() => {
-        console.log(steps, StepsContent.length - 1)
-    }, [steps])
 
     switch (steps < StepsContent.length) {
         case true:

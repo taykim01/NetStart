@@ -10,7 +10,7 @@ import { useViewportWidth } from "@/presentation/hooks/useResponsive"
 import { useSelector } from "react-redux"
 
 export default function MainPage() {
-    const { scrollTo, refS2 } = useContext(ScrollContext);
+    const { scrollTo, refS2, refS3 } = useContext(ScrollContext);
     useViewportWidth()
     const responsive = useSelector((state: any) => state.responsive.responsive)
 
@@ -32,7 +32,7 @@ export default function MainPage() {
                             <Button
                                 type="learn_more"
                                 text="더 알아보기"
-                                onClick={() => scrollTo(refS2)}
+                                onClick={() => scrollTo(refS3)}
                             />
                         </div>
                     </div>
