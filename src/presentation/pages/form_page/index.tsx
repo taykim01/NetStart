@@ -1,6 +1,6 @@
 "use client"
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TitleUi from "./title/title_ui";
 import TitleContent from "./title/title_content";
 import FormsUI from "./forms/forms_ui";
@@ -22,17 +22,17 @@ export default function FormPage() {
     const [isLoading, setIsLoading] = useState(false)
 
     const increaseStep = async () => {
-        const submit_inquiry_use_case = new SubmitInquiryUseCase()
         let response;
         let reply;
         try {
             if (steps === TitleContent.length) {
+                const submit_inquiry_use_case = new SubmitInquiryUseCase()
                 const validation = submit_inquiry_use_case.validateInquiry(inputContents)
                 if (validation.result === Result.Success) {
                     setIsLoading(true)
                     response = await submit_inquiry_use_case.enrollInquiry(inputContents, file)
                     if (response.result === Result.Success) {
-                        setSteps(steps + 1);
+                        setSteps(steps + 1)
                         setIsLoading(false)
                     }
                 } else {
@@ -63,7 +63,7 @@ export default function FormPage() {
             switch (responsive) {
                 case "desktop":
                     return (
-                        <div className="main sbj">
+                        <div className={`main sbj`}>
                             <TitleUi
                                 pageStep={TitleContent[steps - 1].step}
                                 totalLength={TitleContent.length}
@@ -74,11 +74,13 @@ export default function FormPage() {
                                 onClick={increaseStep}
                                 backClick={decreaseStep}
                             />
-                            <FormsUI
-                                takeInput={setFile}
-                                steps={steps}
-                                error={error}
-                            />
+                            <div className={`slide-basic`}>
+                                <FormsUI
+                                    takeInput={setFile}
+                                    steps={steps}
+                                    error={error}
+                                />
+                            </div>
                             {
                                 isLoading && <Loading />
                             }

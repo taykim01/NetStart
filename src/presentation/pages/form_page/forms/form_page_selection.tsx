@@ -37,14 +37,14 @@ export default function FormPageSelection(props: any) {
 
     const [innerWidth, setInnerWidth] = useState(window.innerWidth);
     useEffect(() => {
-      const handleResize = () => {
-        setInnerWidth(window.innerWidth);
-      };
-      handleResize();
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
+        const handleResize = () => {
+            setInnerWidth(window.innerWidth);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     const [activeItemIndex, setActiveItemIndex] = useState(0);
@@ -52,18 +52,17 @@ export default function FormPageSelection(props: any) {
     return (
         <div style={
             responsive === "desktop"
-            ? { width: "calc(100% - 120px)", marginRight: -160 }
-            : responsive === "mobile"
-                ? { width: "100%" }
-                : {}
+                ? { width: "50vw", marginRight: "-10vw" }
+                : responsive === "mobile"
+                    ? { width: "100%" }
+                    : {}
         }>
             <ItemsCarousel
                 requestToChangeActive={setActiveItemIndex}
                 activeItemIndex={activeItemIndex}
-                numberOfCards={(innerWidth * 0.85) / 440}
+                numberOfCards={(innerWidth * 0.65) / 440}
                 leftChevron={<div style={{ transform: "scale(0.8)" }}><Button type="arrow_button" direction="left" /></div>}
                 rightChevron={<div style={{ transform: "scale(0.8)" }}><Button type="arrow_button" direction="right" /></div>}
-                infiniteLoop={false}
                 firstAndLastGutter={responsive === "desktop"}
                 chevronWidth={responsive === "desktop" ? chevronWidth : (chevronWidth / 4)}
             >

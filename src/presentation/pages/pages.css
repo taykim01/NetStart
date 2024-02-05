@@ -10,6 +10,18 @@
   width: 100%;
 }
 
+.slide-basic {
+  transition: transform 0.7s ease-out;
+}
+
+.slide-down {
+  transform: translateY(100%);
+}
+
+.slide-up {
+  transform: translateY(-100%);
+}
+
 .pages_full-page {
   display: flex;
   align-items: center;
