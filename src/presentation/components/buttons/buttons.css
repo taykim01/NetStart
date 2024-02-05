@@ -101,7 +101,7 @@ button:hover .button-text {
   background-color: transparent;
   overflow: hidden;
   border-radius: 12px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .main-button {
@@ -115,31 +115,31 @@ button:hover .button-text {
 }
 
 .main-button:hover {
-  box-shadow: 1px 1px 200px var(--main-500);
+  box-shadow: 4px 4px 0px var(--grey-400);
+  transform: translate(-2px, -2px);
   color: var(--white);
   background-color: var(--main-500);
 }
 
 .sub-button:hover {
-  box-shadow: 1px 1px 200px var(--grey-700);
+  box-shadow: 4px 4px 0px var(--grey-400);
+  transform: translate(-2px, -2px);
   background-color: var(--grey-200);
 }
 
 .text-button {
   padding: 12px 24px;
-  background-color: none;
-  transition: all 0.3s;
+  background-color: transparent;
   border-radius: 12px;
   color: var(--grey-900);
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .text-button:active,
 .text-button:hover {
-  background-color: var(--main-500);
-  color: var(--white);
-  transition: all 0.5s ease;
-  box-shadow: 1px 1px 200px var(--main-500);
+  background-color: transparent;
+  box-shadow: 4px 4px 0px var(--main-500);
+  transform: translate(-2px, -2px);
 }
 
 .btn-container-right {
