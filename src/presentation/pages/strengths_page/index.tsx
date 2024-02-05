@@ -82,7 +82,7 @@ export default function StrengthsPage(props: any) {
                         <div className="pages_continuous-slider-track">
                             {
                                 services.map(
-                                    service => <div className="pages_animation h5">{service}</div>
+                                    service => <div key={service} className="pages_animation h5">{service}</div>
                                 )
                             }
                         </div>
