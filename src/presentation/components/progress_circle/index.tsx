@@ -3,8 +3,8 @@ import "./progress_circle.css"
 
 function ProgressCircle(props: any) {
     const [offset, setOffset] = useState(0);
-    const size = 80;
-    const strokeWidth = 8;
+    const size = 60;
+    const strokeWidth = 6;
     const center = size / 2;
     const radius = size / 2 - strokeWidth / 2;
     const circumference = 2 * Math.PI * radius;

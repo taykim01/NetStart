@@ -17,7 +17,7 @@ export default function Checkboxes(props: any) {
         case "toggle":
             return (
                 <div
-                    className={`${toggleStatus ? 'toggle-on' : 'toggle-off'} toggle`}
+                    className={`${toggleStatus ? 'toggle-on' : 'toggle-off'} toggle grey-400`}
                     onClick={handleToggle}
                 >{props.text}</div>
             )

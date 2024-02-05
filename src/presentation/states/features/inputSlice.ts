@@ -15,7 +15,7 @@ export const emptyInquiry = {
       main: "",
       sub: ""
     },
-    landing: "",
+    main: "",
     form: "",
     board: "",
     blog: "",

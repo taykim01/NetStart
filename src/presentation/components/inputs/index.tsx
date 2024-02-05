@@ -107,7 +107,6 @@ export default function Input(props: any) {
                         }`}
                     </style>
                     <input
-                        required
                         type="text"
                         className="input"
                         onBlur={(e: any) => handleInput(e)}

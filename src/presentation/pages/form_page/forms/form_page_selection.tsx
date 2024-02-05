@@ -52,7 +52,7 @@ export default function FormPageSelection(props: any) {
     return (
         <div style={
             responsive === "desktop"
-            ? { padding: `0 ${chevronWidth}px`, width: "70%", marginRight: -160 }
+            ? { width: "calc(100% - 120px)", marginRight: -160 }
             : responsive === "mobile"
                 ? { width: "100%" }
                 : {}
@@ -60,26 +60,13 @@ export default function FormPageSelection(props: any) {
             <ItemsCarousel
                 requestToChangeActive={setActiveItemIndex}
                 activeItemIndex={activeItemIndex}
-                numberOfCards={(innerWidth * 0.7) / 440}
+                numberOfCards={(innerWidth * 0.85) / 440}
                 leftChevron={<div style={{ transform: "scale(0.8)" }}><Button type="arrow_button" direction="left" /></div>}
                 rightChevron={<div style={{ transform: "scale(0.8)" }}><Button type="arrow_button" direction="right" /></div>}
-                outsideChevron={true}
                 infiniteLoop={false}
                 firstAndLastGutter={responsive === "desktop"}
                 chevronWidth={responsive === "desktop" ? chevronWidth : (chevronWidth / 4)}
             >
-                <Card
-                    pageName="랜딩 페이지"
-                    title="랜딩 페이지에 필요한 정보를 적어주세요."
-                    contents={
-                        <TextareaCard
-                            takeInput={(input: any) => handleInput("landing", input)}
-                            placeholder={defaultValues[0]}
-                            value={inputContents.landing}
-                        />
-                    }
-                    isTrue={inputContents.landing !== ""}
-                    />
                 <Card
                     pageName="신청 폼 페이지"
                     title="신청 시 필요한 정보를 적어주세요. (예시: 이메일)"

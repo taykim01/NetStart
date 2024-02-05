@@ -1,9 +1,9 @@
 "use client"
 
 import { useContext, useState } from "react";
-import TitleUi from "./steps/steps_ui";
-import StepsContent from "./steps/steps_content";
-import FormsUI from "./forms";
+import TitleUi from "./title/title_ui";
+import TitleContent from "./title/title_content";
+import FormsUI from "./forms/forms_ui";
 import FormDonePage from "./form_done_page";
 import SubmitInquiryUseCase from "@/domain/usecases/submit_inquiry_use_case";
 import { useSelector } from "react-redux";
@@ -26,7 +26,7 @@ export default function FormPage() {
         let response;
         let reply;
         try {
-            if (steps === StepsContent.length) {
+            if (steps === TitleContent.length) {
                 const validation = submit_inquiry_use_case.validateInquiry(inputContents)
                 if (validation.result === Result.Success) {
                     setIsLoading(true)
@@ -59,18 +59,18 @@ export default function FormPage() {
     switch (true) {
         case (steps === 0):
             return <FormManual onClick={increaseStep} />
-        case (steps > 0 && steps <= StepsContent.length):
+        case (steps > 0 && steps <= TitleContent.length):
             switch (responsive) {
                 case "desktop":
                     return (
-                        <div className="main">
+                        <div className="main sbj">
                             <TitleUi
-                                pageStep={StepsContent[steps - 1].step}
-                                totalLength={StepsContent.length}
-                                title={StepsContent[steps - 1].title}
-                                subtitle={StepsContent[steps - 1].subtitle}
-                                buttonText={StepsContent[steps - 1].buttonText}
-                                backButtonText={StepsContent[steps - 1].backButtonText}
+                                pageStep={TitleContent[steps - 1].step}
+                                totalLength={TitleContent.length}
+                                title={TitleContent[steps - 1].title}
+                                subtitle={TitleContent[steps - 1].subtitle}
+                                buttonText={TitleContent[steps - 1].buttonText}
+                                backButtonText={TitleContent[steps - 1].backButtonText}
                                 onClick={increaseStep}
                                 backClick={decreaseStep}
                             />
@@ -89,12 +89,12 @@ export default function FormPage() {
                     return (
                         <div className="main-mobile">
                             <TitleUi
-                                pageStep={StepsContent[steps].step}
-                                totalLength={StepsContent.length}
-                                title={StepsContent[steps].title}
-                                subtitle={StepsContent[steps].subtitle}
-                                buttonText={StepsContent[steps].buttonText}
-                                backButtonText={StepsContent[steps].backButtonText}
+                                pageStep={TitleContent[steps].step}
+                                totalLength={TitleContent.length}
+                                title={TitleContent[steps].title}
+                                subtitle={TitleContent[steps].subtitle}
+                                buttonText={TitleContent[steps].buttonText}
+                                backButtonText={TitleContent[steps].backButtonText}
                                 onClick={increaseStep}
                                 backClick={decreaseStep}
                                 contents={
@@ -109,7 +109,7 @@ export default function FormPage() {
                     )
             }
 
-        case (steps > StepsContent.length):
+        case (steps > TitleContent.length):
             return <FormDonePage back={() => setSteps(0)} />
     }
 
