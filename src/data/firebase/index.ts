@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCp-8Zr_VV_-NrvWh6mGXP6qRY2WrRPwFA",
-  authDomain: "netstart-bc462.firebaseapp.com",
-  projectId: "netstart-bc462",
-  storageBucket: "netstart-bc462.appspot.com",
-  messagingSenderId: "427192160971",
-  appId: "1:427192160971:web:a68d93954b6758db8cc14e",
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
