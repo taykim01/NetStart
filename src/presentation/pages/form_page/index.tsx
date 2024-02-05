@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext, useState } from "react";
-import StepsUI from "./steps/steps_ui";
+import TitleUi from "./steps/steps_ui";
 import StepsContent from "./steps/steps_content";
 import FormsUI from "./forms";
 import FormDonePage from "./form_done_page";
@@ -64,7 +64,7 @@ export default function FormPage() {
                 case "desktop":
                     return (
                         <div className="main">
-                            <StepsUI
+                            <TitleUi
                                 pageStep={StepsContent[steps - 1].step}
                                 totalLength={StepsContent.length}
                                 title={StepsContent[steps - 1].title}
@@ -88,7 +88,7 @@ export default function FormPage() {
                 case "mobile":
                     return (
                         <div className="main-mobile">
-                            <StepsUI
+                            <TitleUi
                                 pageStep={StepsContent[steps].step}
                                 totalLength={StepsContent.length}
                                 title={StepsContent[steps].title}
