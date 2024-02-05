@@ -1,5 +1,6 @@
 import Checkboxes from "@/presentation/components/checkboxes";
 import Input from "@/presentation/components/inputs";
+import ProgressCircle from "@/presentation/components/progress_circle";
 import { applyFile } from "@/presentation/states/features/fileSlice";
 import { applyColor, applyInput } from "@/presentation/states/features/inputSlice";
 import { useState } from "react";
