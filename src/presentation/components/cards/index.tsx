@@ -69,7 +69,7 @@ export default function Card(props: any) {
             <div className="vf gap12 h100">
                 <div className="grey-900 h4">{props.pageName}</div>
                 <div className={`card-container h100 ${toggle ? null : "disable-background"}`}>
-                    <div className="grey-500 h6">{props.title}</div>
+                    <div className="grey-500 p4">{props.title}</div>
                     {props.contents}
                 </div>
             </div>

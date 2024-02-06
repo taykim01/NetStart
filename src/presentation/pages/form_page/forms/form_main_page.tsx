@@ -16,6 +16,8 @@ export default function FormMainPage(props: any) {
         )
     }
 
+    const placeholder = "홈 화면은 유저가 가장 먼저 보는 페이지입니다.\n유저에게 소개, 홍보하고자 하는 중요한 정보를 적어주세요.\n\n예시:\n• 브랜드 로고 및 이름\n• 핵심 메시지나 서비스의 가장 중요한 특징\n• 제품 또는 서비스의 이미지\n• 제품 또는 서비스의 설명\n• 행동 유도문구(Call-To-Action, CTA)\n• 고객 후기 및 프로모션 정보\n• 연락처 정보"
+
     return (
         <div className="form_page-home-card vf gap32 h100">
             <div className="hf ca sbj">
@@ -36,7 +38,7 @@ export default function FormMainPage(props: any) {
                 <div className="overline grey-700">홈 화면에는 무엇이 들어가야 하나요?</div>
                 <Input
                     type="textarea"
-                    placeholder={"유저가 처음으로 보는 페이지입니다.\n\n유저에게 소개, 홍보하고자 하는\n정보를 담습니다."}
+                    placeholder={placeholder}
                     takeInput={handleInput}
                     resize={"none"}
                 />
