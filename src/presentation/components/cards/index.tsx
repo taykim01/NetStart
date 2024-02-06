@@ -48,7 +48,7 @@ export default function Card(props: any) {
     }
 
     return (
-        <div className={`${responsive === "mobile" ? "mobile_" : null}card vf gap32 h100`}>
+        <div className={`${responsive === "mobile" ? "mobile_" : ""}card vf gap32 h100`}>
             <div className="hf ca sbj">
                 <div className="tools">
                     <div className="circle">

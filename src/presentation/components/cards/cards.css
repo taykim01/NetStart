@@ -9,6 +9,7 @@
   z-index: 1;
   box-shadow: 1px 2px 4px 0px var(--main-shade);
   margin: 5px;
+  background-color: var(--white);
 }
 
 .mobile_card {
