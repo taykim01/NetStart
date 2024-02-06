@@ -1,7 +1,7 @@
 'use client'
 
 import Button from "@/presentation/components/buttons";
-import Card from "@/presentation/components/cards/card";
+import Card from "@/presentation/components/cards";
 import FormCard from "@/presentation/components/cards/card_contents/form_card";
 import SignUpCard from "@/presentation/components/cards/card_contents/sign_up_card";
 import TextareaCard from "@/presentation/components/cards/card_contents/textarea_card";

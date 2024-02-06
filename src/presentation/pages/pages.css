@@ -10,6 +10,45 @@
   width: 100%;
 }
 
+.pages_manual-page {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  height: 100vh;
+  padding: 40px 12vw 0px 12vw;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--grey-100);
+}
+
+.cards_selection {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+}
+
+#card {
+  width: 100%;
+  height: 400px;
+  display: grid;
+  grid-template-rows: 1fr 5fr 3fr;
+  gap: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.cards_selection .card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: 400ms;
+  background-color: var(--white);
+}
+
+#card:hover {
+  transform: scale(1.1, 1.1);
+}
+
 .slide-basic {
   transition: transform 0.7s ease-out;
 }

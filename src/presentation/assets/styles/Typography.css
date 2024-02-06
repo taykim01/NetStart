@@ -3,71 +3,80 @@
   src: url("../fonts/PretendardVariable.woff2");
 }
 
-:root {
-  font-family: Pretendard;
-}
-
 .emph {
+  font-family: Pretendard;
   font-size: 32px;
   font-weight: 700;
 }
 
 .emph2 {
+  font-family: Pretendard;
   font-size: 24px;
   font-weight: 700;
 }
 
 .h1 {
+  font-family: Pretendard;
   font-size: 40px;
   font-weight: 700;
 }
 
 .h2 {
+  font-family: Pretendard;
   font-size: 32px;
   font-weight: 700;
 }
 
 .h3 {
+  font-family: Pretendard;
   font-size: 24px;
   font-weight: 600;
 }
 
 .h4 {
+  font-family: Pretendard;
   font-size: 20px;
   font-weight: 600;
 }
 
 .h5 {
+  font-family: Pretendard;
   font-size: 16px;
   font-weight: 600;
 }
 
 .h6 {
+  font-family: Pretendard;
   font-size: 14px;
   font-weight: 600;
 }
 
 .p1 {
+  font-family: Pretendard;
   font-size: 20px;
   font-weight: 400;
 }
 
 .p2 {
+  font-family: Pretendard;
   font-size: 16px;
   font-weight: 400;
 }
 
 .p3 {
+  font-family: Pretendard;
   font-size: 14px;
   font-weight: 400;
 }
 
 .p4 {
+  font-family: Pretendard;
   font-size: 12px;
   font-weight: 500;
 }
 
 .overline {
+  font-family: Pretendard;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 10%;

@@ -9,6 +9,7 @@ import store from "@/presentation/states/store";
 import { ScrollContext } from "@/presentation/states/scroll_context";
 import StrengthsPage from "@/presentation/pages/strengths_page";
 import Footer from "@/presentation/components/footer";
+import ManualPage from "@/presentation/pages/manual_page";
 
 export default function Home() {
   const refS1 = useRef(null)
@@ -27,6 +28,7 @@ export default function Home() {
         <main>
           <Header />
           <div ref={refS1}><MainPage /></div>
+          <ManualPage />
           <StrengthsPage reference={refS3} />
           <div ref={refS2}><FormPage /></div>
           <Footer />
