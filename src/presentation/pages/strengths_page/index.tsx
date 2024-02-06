@@ -57,7 +57,7 @@ export default function StrengthsPage(props: any) {
     switch (responsive) {
         case "desktop":
             return (
-                <div style={{ width: "100%" }} ref={props.reference}>
+                <div style={{ width: "100%" }}>
                     <ItemsCarousel
                         requestToChangeActive={setActiveItemIndex}
                         activeItemIndex={activeItemIndex}
@@ -166,7 +166,7 @@ export default function StrengthsPage(props: any) {
             )
         case "mobile":
             return (
-                <div style={{ width: "100%" }} ref={props.reference}>
+                <div style={{ width: "100%" }}>
                     <ItemsCarousel
                         requestToChangeActive={setActiveItemIndex}
                         activeItemIndex={activeItemIndex}

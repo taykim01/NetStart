@@ -45,7 +45,7 @@ export default function MainPage() {
 
         case "mobile":
             return (
-                <div className="main-mobile">
+                <div className="main_page-mobile">
                     <div className="vf gap20 w100">
                         <div className="emph grey-900 tca">
                             세상에서 가장 쉽게<br />

@@ -1,15 +1,11 @@
 'use client'
 
 import Header from "@/presentation/components/header";
-import FormPage from "@/presentation/pages/form_page";
-import MainPage from "@/presentation/pages/main_page";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Provider } from "react-redux";
 import store from "@/presentation/states/store";
 import { ScrollContext } from "@/presentation/states/scroll_context";
-import StrengthsPage from "@/presentation/pages/strengths_page";
-import Footer from "@/presentation/components/footer";
-import ManualPage from "@/presentation/pages/manual_page";
+import Pages from "@/presentation/pages";
 
 export default function Home() {
   const refS1 = useRef(null)
@@ -26,12 +22,7 @@ export default function Home() {
     <Provider store={store}>
       <ScrollContext.Provider value={{ scrollTo, refS1, refS2, refS3, refS4 }}>
         <main>
-          <Header />
-          <div ref={refS1}><MainPage /></div>
-          <ManualPage reference={refS4} />
-          <StrengthsPage reference={refS3} />
-          <div ref={refS2}><FormPage /></div>
-          <Footer />
+          <Pages />
         </main>
       </ ScrollContext.Provider >
     </ Provider>

@@ -59,7 +59,7 @@ export default function ManualPage(props: any) {
             )
         case "mobile":
             return (
-                <div className="mobile_pages_manual-page" ref={props.reference}>
+                <div className="mobile_pages_manual-page">
                     <div className="h3 grey-800 w100"
                         style={{ boxSizing: "border-box", padding: "0 20px 20px 8px" }}>
                         NetStart로<br />아이디어 실현하는 방법
