@@ -3,7 +3,7 @@
 import Header from "@/presentation/components/header";
 import FormPage from "@/presentation/pages/form_page";
 import MainPage from "@/presentation/pages/main_page";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Provider } from "react-redux";
 import store from "@/presentation/states/store";
 import { ScrollContext } from "@/presentation/states/scroll_context";

@@ -14,6 +14,11 @@
   z-index: 10;
   top: 0;
   left: 0;
+  transition: 500ms;
+}
+
+.header_scroll-up {
+  transform: translateY(-100%);
 }
 
 .mobile-header {
