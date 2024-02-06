@@ -23,29 +23,27 @@ export default function FormPage() {
 
     const increaseStep = async () => {
         let response;
-        let reply;
-        try {
-            if (steps === TitleContent.length) {
-                const submit_inquiry_use_case = new SubmitInquiryUseCase()
-                const validation = submit_inquiry_use_case.validateInquiry(inputContents)
-                if (validation.result === Result.Success) {
-                    setIsLoading(true)
-                    response = await submit_inquiry_use_case.enrollInquiry(inputContents, file)
-                    if (response.result === Result.Success) {
-                        setSteps(steps + 1)
-                        setIsLoading(false)
-                    }
+        if (steps === TitleContent.length) {
+            const submit_inquiry_use_case = new SubmitInquiryUseCase()
+            const validation = submit_inquiry_use_case.validateInquiry(inputContents)
+            if (validation.result === Result.Success) {
+                setIsLoading(true)
+                response = await submit_inquiry_use_case.enrollInquiry(inputContents, file)
+                console.log(response)
+                if (response.result === Result.Success) {
+                    setSteps(steps + 1)
+                    setIsLoading(false)
                 } else {
-                    setError(validation.payload)
+                    alert(response.message)
+                    console.log(response.payload)
+                    setIsLoading(false)
                 }
             } else {
-                setSteps(steps + 1)
+                setError(validation.payload)
             }
-        } catch (error) {
-            reply = new MyResponse(Result.Fail, "네트워크 오류입니다. 관리자게에 문의주세요.", error)
-            alert(reply.message)
+        } else {
+            setSteps(steps + 1)
         }
-        reply = new MyResponse(Result.Success, "성공적으로 다음 화면으로 넘어가거나 신청서 제출에 성공했습니다.", response)
     }
 
     const decreaseStep = () => {
@@ -81,9 +79,7 @@ export default function FormPage() {
                                     error={error}
                                 />
                             </div>
-                            {
-                                isLoading && <Loading />
-                            }
+                            {isLoading && <Loading />}
                         </div>
                     )
 
@@ -91,22 +87,23 @@ export default function FormPage() {
                     return (
                         <div className="main-mobile">
                             <TitleUi
-                                pageStep={TitleContent[steps].step}
+                                pageStep={TitleContent[steps - 1].step}
                                 totalLength={TitleContent.length}
-                                title={TitleContent[steps].title}
-                                subtitle={TitleContent[steps].subtitle}
-                                buttonText={TitleContent[steps].buttonText}
-                                backButtonText={TitleContent[steps].backButtonText}
+                                title={TitleContent[steps - 1].title}
+                                subtitle={TitleContent[steps - 1].subtitle}
+                                buttonText={TitleContent[steps - 1].buttonText}
+                                backButtonText={TitleContent[steps - 1].backButtonText}
                                 onClick={increaseStep}
                                 backClick={decreaseStep}
-                                contents={
+                                contents={<div className={`slide-basic`}>
                                     <FormsUI
                                         takeInput={setFile}
                                         steps={steps}
                                         error={error}
                                     />
-                                }
+                                </div>}
                             />
+                            {isLoading && <Loading />}
                         </div>
                     )
             }

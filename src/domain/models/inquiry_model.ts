@@ -11,7 +11,7 @@ export default class InquiryModel {
   otherInquiry: string;
   mood: [];
   color: Color;
-  landing: PageSelection;
+  main: PageSelection;
   form: PageSelection;
   board: PageSelection;
   blog: PageSelection;
@@ -30,7 +30,7 @@ export default class InquiryModel {
     otherInquiry: string,
     mood: [],
     color: Color,
-    landing: PageSelection,
+    main: PageSelection,
     form: PageSelection,
     board: PageSelection,
     blog: PageSelection,
@@ -48,7 +48,7 @@ export default class InquiryModel {
     this.otherInquiry = otherInquiry;
     this.mood = mood;
     this.color = color;
-    this.landing = landing;
+    this.main = main;
     this.form = form;
     this.board = board;
     this.blog = blog;
@@ -69,7 +69,7 @@ export default class InquiryModel {
       otherInquiry: this.otherInquiry,
       mood: this.mood,
       color: this.color,
-      landing: this.landing,
+      main: this.main,
       form: this.form,
       board: this.board,
       blog: this.blog,

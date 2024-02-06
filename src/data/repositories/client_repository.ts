@@ -20,7 +20,7 @@ export default class ClientRepository {
         inquiry.otherInquiry,
         inquiry.mood,
         inquiry.color,
-        inquiry.landing,
+        inquiry.main,
         inquiry.form,
         inquiry.board,
         inquiry.blog,

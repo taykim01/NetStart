@@ -27,9 +27,9 @@ export default function TitleUi(props: any) {
 
         case "mobile":
             return (
-                <div className="vf gap20" style={{ padding: "0 8vw", boxSizing: "border-box", width: 390 }}>
-                    <div className="hf gap20 ca overline grey-900">
-                        <div>나만의 웹사이트 만들기</div>
+                <div className="vf gap20">
+                    <div className="hf gap20 ca overline grey-700">
+                        <div>아이디어 실행하기</div>
                         <div>{props.pageStep} / {props.totalLength}</div>
                     </div>
                     <div className="vf gap24">

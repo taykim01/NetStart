@@ -8,6 +8,7 @@ export default function Card(props: any) {
     const [toggle, setToggle] = useState(props.isTrue)
     const dispatch = useDispatch()
     const inputContents = useSelector((state: any) => state.input.value)
+    const responsive = useSelector((state: any) => state.responsive.responsive)
 
     const getToggleValue = (e: boolean) => {
         setToggle(e)
@@ -47,7 +48,7 @@ export default function Card(props: any) {
     }
 
     return (
-        <div className="card vf gap32 h100">
+        <div className={`${responsive === "mobile" ? "mobile_" : null}card vf gap32 h100`}>
             <div className="hf ca sbj">
                 <div className="tools">
                     <div className="circle">
@@ -61,7 +62,7 @@ export default function Card(props: any) {
                     </div>
                 </div>
                 <div className="hf gap12 ca">
-                    <div className="h6 grey-700">{toggle ? `${props.pageName} 사용` : "사용하지 않음"}</div>
+                    <div className="h6 grey-700">{toggle ? "사용 중" : "사용하지 않음"}</div>
                     <Toggle takeInput={getToggleValue} isTrue={props.isTrue} />
                 </div>
             </div>

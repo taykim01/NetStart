@@ -119,8 +119,8 @@ export default function FormMood(props: any) {
 
         case "mobile":
             return (
-                <div className="vf gap48 grey-900 w100" >
-                    <div className="vf gap20">
+                <div className="vf gap32 grey-900 w100" >
+                    <div className="vf gap12">
                         <div className="h5 grey-900">컬러를 선택해주세요.</div>
                         <div className="colors-box w100">
                             <Input key={1} type="color_picker" label="메인컬러" takeInput={(e: any) => handleColor(e, "main")} value={inputContents.color.main} />
@@ -128,15 +128,15 @@ export default function FormMood(props: any) {
                         </div>
                     </div>
 
-                    <div className="vf gap16">
+                    <div className="vf gap8">
                         <div className="h5 grey-900">로고가 있다면, 업로드해주세요.</div>
                         <Input type="upload" takeInput={handleUpload} filename={inputContents.logoUrl} />
                     </div>
 
-                    <div className="vf gap16">
+                    <div className="vf gap12">
                         <div className="h5 grey-900">무드를 선택해주세요.</div>
                         <div className="vf gap12">
-                            <div className="p2 mood-description">{selectedMoods.length > 0 ? null : '~한'}{selectedMoods.join(", ")} 웹사이트</div>
+                            <div className="p3 mood-description">{selectedMoods.length > 0 ? null : '~한'}{selectedMoods.join(", ")} 웹사이트</div>
                             <div className="mood-box">
                                 {
                                     moods.map(

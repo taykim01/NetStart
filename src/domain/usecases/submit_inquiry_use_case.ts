@@ -32,25 +32,17 @@ export default class SubmitInquiryUseCase {
 
   async enrollInquiry(inquiry: InquiryModel, imageData?: File) {
     let response;
-    try {
-      const client_repository = new ClientRepository();
-      let logoUrl = "없음";
-      if (imageData) {
-        logoUrl = await (
-          await client_repository.submitLogoAndGetUrl(
-            imageData,
-            inquiry.productName
-          )
-        ).payload;
-      }
-      response = await client_repository.enrollInquiry(inquiry, logoUrl);
-    } catch (error) {
-      return new MyResponse(Result.Fail, "문의 등록에 실패했습니다.", error);
+    const client_repository = new ClientRepository();
+    let logoUrl = "없음";
+    if (imageData) {
+      logoUrl = await (
+        await client_repository.submitLogoAndGetUrl(
+          imageData,
+          inquiry.productName
+        )
+      ).payload;
     }
-    return new MyResponse(
-      Result.Success,
-      "문의 등록에 성공했습니다.",
-      response
-    );
+    response = await client_repository.enrollInquiry(inquiry, logoUrl);
+    return response;
   }
 }

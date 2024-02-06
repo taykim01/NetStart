@@ -11,9 +11,32 @@
   margin: 5px;
 }
 
+.mobile_card {
+  width: 74vw;
+  height: 480px;
+  border-radius: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+  box-shadow: 1px 2px 4px 0px var(--main-shade);
+  margin: 5px;
+}
+
 .form_page-home-card {
   width: 480px;
   height: 480px;
+  border-radius: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+  box-shadow: 1px 2px 4px 0px var(--main-shade);
+  margin: 5px;
+  background-color: var(--white);
+}
+
+.mobile_form_page-home-card {
+  height: 100%;
+  min-height: 400px;
   border-radius: 16px;
   padding: 20px;
   box-sizing: border-box;

@@ -24,7 +24,7 @@
 .mobile-header {
   height: 60px;
   width: 100%;
-  padding: 0 8vw;
+  padding: 0 12vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,5 +33,5 @@
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: var(--white);
+  background-color: var(--grey-50);
 }

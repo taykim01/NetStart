@@ -57,7 +57,7 @@ export default function FormPageSelection(props: any) {
             <ItemsCarousel
                 requestToChangeActive={setActiveItemIndex}
                 activeItemIndex={activeItemIndex}
-                numberOfCards={(innerWidth * 0.65) / 440}
+                numberOfCards={responsive === "desktop" ? (innerWidth * 0.65) / 440 : 1}
                 leftChevron={<div style={{ transform: "scale(0.8)" }}><Button type="arrow_button" direction="left" /></div>}
                 rightChevron={<div style={{ transform: "scale(0.8)" }}><Button type="arrow_button" direction="right" /></div>}
                 firstAndLastGutter={responsive === "desktop"}
