@@ -2,7 +2,7 @@
 
 .footer_main {
   width: 100%;
-  padding: 5vh 11vw;
+  padding: 8vh 12vw;
   box-sizing: border-box;
-  background-color: var(--grey-100);
+  border-top: 20px solid var(--grey-200);
 }
