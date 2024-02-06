@@ -4,9 +4,9 @@ import Button from "@/presentation/components/buttons";
 export default function FormManual(props: any) {
 
     return (
-        <div className="pages_manual-page" ref={props.reference}>
-            <div className="pages_manual-impact vf ca sbj">
-                <TargetIcon size={120} />
+        <div className="pages_form_manual-page" ref={props.reference}>
+            <div className="pages_manual-impact vf ca">
+                <TargetIcon size={160} />
                 <div className="vf ca gap16">
                     <div className="h4 grey-900">3분만에 웹 제작 완료하기!</div>
                     <div className="p3 grey-700">
@@ -15,7 +15,7 @@ export default function FormManual(props: any) {
                         나머지는 NetStart에서 <span className="h5 grey-900">모두</span> 해결해드려요.
                     </div>
                 </div>
-                <Button text="내 웹사이트 제작하기" onClick={props.onClick} />
+                <div style={{ width: 320 }}><Button text="내 웹사이트 제작하기" onClick={props.onClick} /></div>
             </div>
         </div>
     )

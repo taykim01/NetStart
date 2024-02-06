@@ -8,7 +8,7 @@ export default function TitleUi(props: any) {
     switch (responsive) {
         case "desktop":
             return (
-                <div className="vf gap40" style={{ width: 360, minWidth: 360 }}>
+                <div className="vf gap40" style={{ width: 320, minWidth: 320 }}>
                     <div className="hf ca gap24">
                         <ProgressCircle progress={props.pageStep} />
                         <div className="h3 grey-700">Step {props.pageStep}</div>

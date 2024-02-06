@@ -10,6 +10,16 @@
   width: 100%;
 }
 
+.pages_full-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22vw;
+  box-sizing: border-box;
+  width: 100%;
+  height: 60vh;
+}
+
 .pages_manual-page {
   display: flex;
   flex-direction: column;
@@ -18,8 +28,16 @@
   height: 100vh;
   padding: 0 12vw;
   box-sizing: border-box;
-  width: 100%;
-  background-color: var(--grey-100);
+}
+
+.pages_strengths-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  height: 50vh;
+  padding: 0 12vw;
+  box-sizing: border-box;
 }
 
 .cards_selection {
@@ -62,18 +80,6 @@
   transform: translateY(-100%);
 }
 
-.pages_full-page {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 22vw;
-  box-sizing: border-box;
-  width: 100%;
-  height: 50vh;
-  background-color: var(--grey-100);
-  margin: 25vh 0;
-}
-
 .pages_grid_two_column {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -83,10 +89,24 @@
   width: 100%;
   height: 100%;
   border-radius: 50px;
-  background: var(--grey-100);
+  gap: 48px;
+  background: var(--white);
   box-shadow: 20px 20px 60px var(--grey-shade), -20px -20px 60px var(--white);
   padding: 48px 56px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pages_form_manual-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 10vh 12vw;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .pages_block {

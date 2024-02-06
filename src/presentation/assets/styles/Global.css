@@ -12,9 +12,6 @@ html {
   overflow-x: hidden;
 }
 
-.canvas {
-  padding: 0 20px;
-  box-sizing: border-box;
-  width: 390px;
-  margin: 0 auto;
+main {
+  background-color: var(--grey-50);
 }

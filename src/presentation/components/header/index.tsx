@@ -32,7 +32,7 @@ export default function Header() {
                             <Button type="text_button" text="가격" onClick={() => scrollTo(refS3)} />
                         </div>
                     </div>
-                    <Button text="무료로 신청하기" onClick={() => scrollTo(refS2)} />
+                    <div style={{ width: 200 }}><Button text="무료로 신청하기" onClick={() => scrollTo(refS2)} /></div>
                 </div>
             )
         case "mobile":

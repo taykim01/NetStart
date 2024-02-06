@@ -76,7 +76,7 @@ export default function Button(props: any) {
             )
         default:
             return (
-                <button className="button main-button" onClick={props.onClick}>
+                <button className="button main-button w100" onClick={props.onClick}>
                     <span className="btn-txt">{props.text}</span>
                 </button>
             )
