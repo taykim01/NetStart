@@ -10,8 +10,5 @@ html {
   user-select: none;
   scroll-behavior: smooth;
   overflow-x: hidden;
-}
-
-main {
   background-color: var(--grey-50);
 }
