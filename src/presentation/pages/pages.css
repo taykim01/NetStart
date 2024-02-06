@@ -13,9 +13,10 @@
 .pages_manual-page {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: left;
   height: 100vh;
-  padding: 40px 12vw 0px 12vw;
+  padding: 0 12vw;
   box-sizing: border-box;
   width: 100%;
   background-color: var(--grey-100);
@@ -76,17 +77,6 @@
 .pages_grid_two_column {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.pages_manual-page {
-  padding: 25vh 12vw 15vh 12vw;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(5px);
 }
 
 .pages_manual-impact {
