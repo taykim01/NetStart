@@ -28,7 +28,7 @@ export default function Home() {
         <main>
           <Header />
           <div ref={refS1}><MainPage /></div>
-          <ManualPage />
+          <ManualPage reference={refS4} />
           <StrengthsPage reference={refS3} />
           <div ref={refS2}><FormPage /></div>
           <Footer />
